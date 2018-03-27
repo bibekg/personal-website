@@ -11,7 +11,7 @@ import info from '../info'
 
 const InnerContainer = styled.div`
     max-width: 800px;
-    padding: 20px 0;
+    padding: 50px 0;
 `
 
 const GalleryContainer = styled.div`
