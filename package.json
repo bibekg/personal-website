@@ -9,7 +9,8 @@
     "build": "parcel build src/index.html -d build/ --public-url ./",
     "deploy": "yarn build && yarn deploy-surge",
     "deploy-surge": "surge --project build --domain bibekg.com",
-    "clean": "rimraf dist && rimraf build"
+    "clean": "rimraf dist && rimraf build",
+    "image-optim": "imageOptim --directory src/js/images"
   },
   "dependencies": {
     "color": "^3.0.0",
@@ -26,6 +27,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "flow": "^0.2.3",
+    "imageoptim-cli": "^1.15.4",
     "parcel-bundler": "^1.6.2",
     "rimraf": "^2.6.2",
     "surge": "^0.20.1"

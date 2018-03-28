@@ -2176,6 +2176,10 @@ ieee754@^1.1.4:
   version "1.1.10"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.10.tgz#719a6f7b026831e64bdb838b0de1bb0029bbf716"
 
+imageoptim-cli@^1.15.4:
+  version "1.15.4"
+  resolved "https://registry.yarnpkg.com/imageoptim-cli/-/imageoptim-cli-1.15.4.tgz#ae68ba0ff984ba9602a55afac9db4108b1489287"
+
 indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
