@@ -6,7 +6,6 @@ import { colors } from '../styles'
 import info from '../info'
 import profilePicture from '../images/profile.jpg'
 import Flex from 'styled-flex-component'
-import NameText from './NameText'
 import Text from './Text'
 
 const Card = styled(Flex)`
@@ -22,10 +21,7 @@ const ProfileImage = styled.img`
     border: 5px solid ${colors.blue};
 `
 
-const SocialLinks = styled(Flex).attrs({
-    justifyStart: true,
-    alignCenter: true
-})`
+const SocialLinks = styled(Flex)`
     margin: 10px 0;
     & > * {
         margin-right: 10px;
@@ -49,9 +45,9 @@ export default function BusinessCard() {
         <Card alignStart justifyStart className='hello'>
             <ProfileImage src={profilePicture} alt={name} />
             <Flex column alignStart>
-                <NameText>{name}</NameText>
+                <Text bold color={colors.blue} size={48}>{name}</Text>
                 <Text light>{info.tagline}</Text>
-                <SocialLinks>
+                <SocialLinks justifyStart alignCenter>
                     {info.links.map(link => (
                         <a key={link.name} href={link.href}><SocialLinkIcon src={link.icon} alt={link.name} /></a>
                     ))}

@@ -20,6 +20,17 @@ injectGlobal([`
     *, *:before, *:after {
         box-sizing: border-box;
     }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: ${colors.blue};
+        border-radius: 3px;
+    }
 `])
 
 const AppWrapper = styled.div`
