@@ -17,7 +17,6 @@ type PropsType = {
 
 const Overlay = styled(Flex)`
     justify-content: ${props => props.justify};
-    background-color: ${Color(colors.blue).alpha(0.8).string()};
     width: 100%;
     height: 100%;
     padding: 4px;
@@ -50,11 +49,13 @@ const GalleryItemDiv = styled.div`
     }
 
     ${Overlay} {
+        border-radius: 5px;
+        background-color: ${Color(colors.blue).alpha(0.95).string()};
         position: absolute;
         top: 0;
         left: 0;
         opacity: 0;
-        transition: 0.3s ease opacity;
+        transition: 0.5s ease opacity;
     }
 
     &:hover {
@@ -65,7 +66,7 @@ const GalleryItemDiv = styled.div`
 `
 
 const TitleText = Text.extend`
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 `
 
 const GalleryItem = (props: PropsType) => {
