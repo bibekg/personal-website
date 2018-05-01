@@ -39,7 +39,7 @@ export default {
     },
     {
       name: "Resume",
-      href: "https://drive.google.com/a/g.ucla.edu/file/d/0B8Xo4dQ-Hu_CRFloU3hxYzRZbU0/view?usp=sharing",
+      href: "https://drive.google.com/file/d/0B8Xo4dQ-Hu_CbWw2U2dJR2tyWUU/view?usp=sharing",
       icon: resumeIcon
     }
   ],
