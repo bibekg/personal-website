@@ -6,6 +6,7 @@ import Flex from 'styled-flex-component'
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
 import Gallery, { GalleryItem } from './Gallery'
+import PhotoGallery from './PhotoGallery'
 import Title from './Title'
 import info from '../info'
 
@@ -39,6 +40,11 @@ export default function() {
                 <GalleryContainer>
                     <Title>Work</Title>
                     <Gallery contents={info.work} />
+                </GalleryContainer>
+
+                <GalleryContainer>
+                    <Title>Photography</Title>
+                    <PhotoGallery />
                 </GalleryContainer>
                     
             </InnerContainer>

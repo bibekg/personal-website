@@ -3458,7 +3458,7 @@ prompt@~0.2.14:
     utile "0.2.x"
     winston "0.8.x"
 
-prop-types@^15.5.4, prop-types@^15.6.0:
+prop-types@^15.5.4, prop-types@^15.6.0, prop-types@~15.6.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -3565,6 +3565,12 @@ react-dom@^16.2.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react-photo-gallery@^6.0.25:
+  version "6.0.25"
+  resolved "https://registry.yarnpkg.com/react-photo-gallery/-/react-photo-gallery-6.0.25.tgz#72c33849ab9ca72850bd9b0916e129245a25ae70"
+  dependencies:
+    prop-types "~15.6.0"
 
 react-router-dom@^4.2.2:
   version "4.2.2"
