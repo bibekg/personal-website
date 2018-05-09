@@ -2,9 +2,7 @@
 
 import * as React from 'react'
 import Gallery from 'react-photo-gallery'
-
 import photography from '../images/photography'
-
 
 export default function PhotoGallery() {
     return (

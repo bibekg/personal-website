@@ -38,11 +38,6 @@ export default function() {
                 </GalleryContainer>
 
                 <GalleryContainer>
-                    <Title>Work</Title>
-                    <Gallery contents={info.work} />
-                </GalleryContainer>
-
-                <GalleryContainer>
                     <Title>Photography</Title>
                     <PhotoGallery />
                 </GalleryContainer>
