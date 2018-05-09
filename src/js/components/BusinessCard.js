@@ -8,9 +8,35 @@ import profilePicture from '../images/profile.jpg'
 import Flex from 'styled-flex-component'
 import Text from './Text'
 
-const Card = styled(Flex)`
+const BREAKPOINT = 650;
+
+const Card = styled.div`
     & > *:first-child {
         margin-right: 10px;
+    }
+
+    display: flex;
+    @media screen and (max-width: ${BREAKPOINT - 1}px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT}px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+`
+
+const TextInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: ${BREAKPOINT - 1}px) {
+        align-items: center;
+    }
+
+    @media screen and (min-width: ${BREAKPOINT}px) {
+        align-items: flex-start;
     }
 `
 
@@ -42,9 +68,9 @@ export default function BusinessCard() {
     const name = `${info.name.first} ${info.name.last}`
 
     return (
-        <Card alignStart justifyStart className='hello'>
+        <Card>
             <ProfileImage src={profilePicture} alt={name} />
-            <Flex column alignStart>
+            <TextInfo>
                 <Text bold color={colors.blue} size={48}>{name}</Text>
                 <Text light>{info.tagline}</Text>
                 <SocialLinks justifyStart alignCenter>
@@ -52,7 +78,7 @@ export default function BusinessCard() {
                         <a key={link.name} href={link.href}><SocialLinkIcon src={link.icon} alt={link.name} /></a>
                     ))}
                 </SocialLinks>
-            </Flex>
+            </TextInfo>
         </Card>
     )
 }

@@ -14,11 +14,10 @@ export default function PhotoGallery() {
             ]}
           />
           <Gallery
-            columns={3}
+            columns={2}
             photos={[
               { src: photography.chicagoTrain, width: 3, height: 4 },
-              { src: photography.mistTrail, width: 4, height: 3 },
-              { src: photography.shuvangSMM, width: 3, height: 4 }
+              { src: photography.mistTrail, width: 4, height: 3 }
             ]}
           />
           <Gallery
@@ -26,7 +25,14 @@ export default function PhotoGallery() {
             photos={[
               { src: photography.gettyStream, width: 3, height: 4 },
               { src: photography.chicagoAerial, width: 3, height: 4 },
-              { src: photography.carBlur, width: 4, height: 3 }
+              { src: photography.sabinZip, width: 3, height: 4}
+            ]}
+          />
+          <Gallery
+            columns={2}
+            photos={[
+              { src: photography.carBlur, width: 4, height: 3 },
+              { src: photography.shuvangSMM, width: 3, height: 4 }
             ]}
           />
         </div>

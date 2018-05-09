@@ -12,6 +12,7 @@ import info from '../info'
 
 const InnerContainer = styled.div`
     max-width: 850px;
+    width: 100%;
     padding: 50px;
 `
 

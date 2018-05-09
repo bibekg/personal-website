@@ -7,6 +7,8 @@ import Flex from 'styled-flex-component'
 import Text from '../Text'
 import { colors } from '../../styles'
 
+const getPadding = (size: number) => size / 20
+
 type PropsType = {
     size: number,
     name: string,
@@ -27,6 +29,9 @@ const GalleryGridItem = styled.div`
         width: ${props => props.size}px;
         height: ${props => props.size}px;
     }
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 5px;
 `
 
 const GalleryItemDiv = styled.div`
@@ -42,6 +47,7 @@ const GalleryItemDiv = styled.div`
     text-decoration: none;
     width: 100%;
     height: 100%;
+    margin: ${props => getPadding(props.size)}px;
 
     img {
         width: 100%;

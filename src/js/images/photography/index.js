@@ -8,6 +8,7 @@ import carBlur from './car-blur.jpg'
 import mistTrail from './mist-trail.gif'
 import chicagoAerial from './chicago-aerial.gif'
 import gettyStream from './getty-stream.gif'
+import sabinZip from './sabin-zip.gif'
 
 export default {
   carBlur,
@@ -16,5 +17,6 @@ export default {
   shuvangSMM,
   mistTrail,
   chicagoAerial,
-  gettyStream
+  gettyStream,
+  sabinZip
 }

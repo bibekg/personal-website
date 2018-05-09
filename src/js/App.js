@@ -22,7 +22,8 @@ injectGlobal([`
     }
 
     ::-webkit-scrollbar {
-        width: 6px;
+        width: 7px;
+        height: 7px;
     }
     ::-webkit-scrollbar-track {
         background-color: transparent;

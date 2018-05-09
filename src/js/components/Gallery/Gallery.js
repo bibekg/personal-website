@@ -7,14 +7,17 @@ import Flex from 'styled-flex-component'
 import GalleryItem from './GalleryItem'
 import { colors } from '../../styles'
 
-const GalleryDiv = Flex.extend`
+const GalleryDiv = styled.div`
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     overflow-y: hidden;
     overflow-x: auto;
-
-    & > * {
-        padding: ${props => (props.size / 20)}px;
-    }
+    padding: 10px;
+    background-color: ${colors.white};
 `
 
 type GalleryItemType = {
@@ -30,7 +33,7 @@ type PropsType = {
 
 export default function Gallery(props: PropsType) {
     return (
-        <GalleryDiv wrap alignCenter justifyStart size={props.size} >
+        <GalleryDiv size={props.size} >
             {props.contents.map(c => (
                 <GalleryItem key={c.name} 
                     name={c.name} 
@@ -45,5 +48,5 @@ export default function Gallery(props: PropsType) {
 }
 
 Gallery.defaultProps = {
-    size: 180
+    size: 150
 }
