@@ -37,7 +37,6 @@ const GalleryGridItem = styled.div`
 const GalleryItemDiv = styled.div`
     display: block;
     position: relative;
-    border-radius: 5px;
     box-shadow: 0px 0px 4px ${Color(colors.black).alpha(0.5).string()};
     flex-shrink: 0;
     background-image: url(${props => props.background});
@@ -55,7 +54,6 @@ const GalleryItemDiv = styled.div`
     }
 
     ${Overlay} {
-        border-radius: 5px;
         background-color: ${Color(colors.blue).alpha(0.95).string()};
         position: absolute;
         top: 0;

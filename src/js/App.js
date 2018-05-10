@@ -30,7 +30,6 @@ injectGlobal([`
     }
     ::-webkit-scrollbar-thumb {
         background-color: ${colors.blue};
-        border-radius: 3px;
     }
 `])
 

@@ -4,7 +4,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from '../styles'
 import info from '../info'
-import profilePicture from '../images/profile.jpg'
+import profilePicture from '../images/me-frame-mixed.png'
 import Flex from 'styled-flex-component'
 import Text from './Text'
 
@@ -44,8 +44,6 @@ const TextInfo = styled.div`
 const ProfileImage = styled.img`
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    border: 5px solid ${colors.blue};
 `
 
 const SocialLinks = styled(Flex)`
