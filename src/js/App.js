@@ -8,8 +8,8 @@ import HomePage from './components/HomePage'
 
 injectGlobal([`
     @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,700');
-
-    body {
+    
+    html, body {
         font-family: ${fonts['sans-serif']}, sans-serif;
         margin: 0;
         width: 100%;

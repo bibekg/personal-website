@@ -19,6 +19,7 @@ const Card = styled.div`
     @media screen and (max-width: ${BREAKPOINT - 1}px) {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     @media screen and (min-width: ${BREAKPOINT}px) {
