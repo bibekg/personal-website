@@ -6,6 +6,7 @@ import BusinessCard from './BusinessCard'
 import Bio from './Bio'
 import Gallery, { GalleryItem } from './Gallery'
 import PhotoGallery from './PhotoGallery'
+import VideoGallery from './VideoGallery'
 import Title from './Title'
 import Container from './Container'
 import info from '../info'
@@ -50,7 +51,7 @@ export default function() {
                     <Container>
                         <Title>Videos</Title>
                     </Container>
-                    <Gallery contents={info.videos} />
+                    <VideoGallery />
                 </GalleryContainer>
 
                 <GalleryContainer>

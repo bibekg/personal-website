@@ -21,14 +21,19 @@ const GalleryDiv = styled.div`
 `
 
 type GalleryItemType = {
+    id: string,
     name: string,
     image: string,
     href?: string
 }
 
 type PropsType = {
+    name: string,
     size: number,
-    contents: Array<GalleryItemType>
+    contents: Array<GalleryItemType>,
+    selectable: boolean,
+    selectedItem?: GalleryItemType,
+    onSelectChange?: (string) => void
 }
 
 export default function Gallery(props: PropsType) {
@@ -36,11 +41,14 @@ export default function Gallery(props: PropsType) {
         <GalleryDiv size={props.size} >
             {props.contents.map(c => (
                 <GalleryItem key={c.name} 
+                    selectable={props.selectable}
+                    selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}
                     name={c.name} 
                     description={c.description}
                     image={c.image} 
                     href={c.href} 
                     size={props.size}
+                    onClick={props.onSelectChange}
                 />
             ))}
         </GalleryDiv>
@@ -48,5 +56,6 @@ export default function Gallery(props: PropsType) {
 }
 
 Gallery.defaultProps = {
-    size: 150
+    size: 150,
+    selectable: false
 }

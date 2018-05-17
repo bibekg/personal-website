@@ -84,25 +84,19 @@ export default {
       name: "Nepal Village Tour",
       description: "The rolling hills of Nepal will always have a special place in my heart.",
       image: nepalVisitVideoStill,
-      href: "https://www.facebook.com/bibekgg/videos/vb.1519606307/10215667255943986/"
+      videoId: "7Ge668Ml0eI"
     },
     {
       name: "Hiking the Mist Trail",
       description: "Arguably the best trail in Yosemite.",
       image: mistTrailVideoStill,
-      href: "https://www.youtube.com/watch?v=6uRwVQzM5wQ"
+      videoId: "6uRwVQzM5wQ"
     },
     {
       name: "Hiking the Matt Davis Trail",
       description: "A peaceful hike through thick forest and ending on the beautiful California shoreline.",
       image: mattDavisTrailVideoStill,
-      href: "https://www.youtube.com/watch?v=FVzuQT1lN1M"
-    },
-    {
-      name: "Maya Deu Malai (cover)",
-      description: "A Nepali-English blend of one of my favorite songs, Give Me Love by Ed Sheeran.",
-      image: mayaDeuMalaiVideoStill,
-      href: "https://www.facebook.com/bibekgg/videos/vb.1519606307/10213900362372751"
+      videoId: "FVzuQT1lN1M"
     }
   ]
 };
