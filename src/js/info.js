@@ -31,7 +31,7 @@ export default {
       href: "https://facebook.com/bibekgg",
       icon: facebookIcon
     },
-    { name: "Github", href: "https://github.com/@bibekg", icon: githubIcon },
+    { name: "Github", href: "https://github.com/bibekg", icon: githubIcon },
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/bibekg",

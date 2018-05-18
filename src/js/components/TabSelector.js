@@ -14,7 +14,7 @@ const SelectorDiv = styled.div`
   width: 100%;
   height: ${SELECTOR_HEIGHT}px;
 
-  border: 2px solid ${colors.lightGrey};
+  border: 2px solid ${colors.blue};
   border-radius: ${SELECTOR_HEIGHT}px;
   > * {
     height: 100%;
@@ -28,7 +28,7 @@ const SelectorDiv = styled.div`
       border-bottom-right-radius: ${SELECTOR_HEIGHT}px;
     }
     &:not(:last-child) {
-      border-right: 1px solid ${colors.lightGrey};
+      border-right: 2px solid ${colors.blue};
     }
   }
 `
