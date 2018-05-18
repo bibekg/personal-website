@@ -2,15 +2,30 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import Gallery from './Gallery'
 import YouTube from 'react-youtube'
+
+import Text from './Text'
+import Gallery from './Gallery'
 import info from '../info'
+import { colors } from '../styles'
 const { videos } = info
 
 const VideoGalleryDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+
+const VideoPlayerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  padding: 20px 0;
+
+  ${Text}:not(:first-child) {
+    margin-bottom: 15px;
+  }
 `
 
 type PropsType = {}
@@ -32,6 +47,17 @@ export default class VideoGallery extends React.Component<
     })
   }
 
+  renderSelectedVideo() {
+    const { selectedVideo } = this.state
+    if (selectedVideo) {
+      return <VideoPlayerDiv>
+        <Text size={24} color={colors.blue} bold>{selectedVideo.name}</Text>
+        { selectedVideo.description && <Text>{selectedVideo.description}</Text>}
+        <YouTube videoId={selectedVideo.videoId} />
+      </VideoPlayerDiv>
+    }
+  }
+
   render(): React.Element<*> {
     return (
       <VideoGalleryDiv>
@@ -42,9 +68,7 @@ export default class VideoGallery extends React.Component<
           selectedItem={this.state.selectedVideo}
           onSelectChange={this.handleSelectChange}
         />
-        {this.state.selectedVideo != null ? (
-          <YouTube videoId={this.state.selectedVideo.videoId} />
-        ) : null}
+        {this.state.selectedVideo != null ? this.renderSelectedVideo() : null}
       </VideoGalleryDiv>
     )
   }

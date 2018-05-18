@@ -41,9 +41,10 @@ const GalleryGridItem = styled.div`
 const GalleryItemDiv = styled.div`
   display: block;
   position: relative;
+  transition: 0.3s ease box-shadow;
   ${props =>
     props.selected
-      ? `box-shadow: 0px 0px 14px 3px ${colors.blue};`
+      ? `box-shadow: 0px 2px 8px 2px ${colors.blue};`
       : `box-shadow: 0px 0px 4px ${Color(colors.black)
           .alpha(0.5)
           .string()};`} flex-shrink: 0;
