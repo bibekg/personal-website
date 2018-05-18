@@ -42,7 +42,7 @@ export default {
         "I later rearchitected the application's backend to use a graph-based model to represent the product's userbase and match relationships."
       ],
       links: [
-        { name: "Main", href: "https://bruinmeet.com", icon: homeIcon }
+        { name: "Main", href: "https://www.bruinmeet.com", icon: homeIcon }
       ],
       screenshots: [
         { src: require('./images/bruinmeet/features-banner.png'), width: 2250, height: 1152 }
