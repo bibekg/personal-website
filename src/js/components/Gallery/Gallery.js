@@ -45,9 +45,10 @@ export default function Gallery(props: PropsType) {
                     selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}
                     name={c.name} 
                     description={c.description}
-                    image={c.image} 
+                    image={c.image.src} 
                     href={c.href} 
-                    size={props.size}
+                    width={props.size}
+                    height={props.size}
                     onClick={props.onSelectChange}
                 />
             ))}

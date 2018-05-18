@@ -6,23 +6,29 @@ import styled from 'styled-components'
 import Flex from 'styled-flex-component'
 import Text from '../Text'
 import { colors } from '../../styles'
+import { computeSizes } from '../../utils'
 
 const getPadding = (size: number) => size / 20
 
 type PropsType = {
   id: string,
-  size: number,
+  width: number,
+  height: number,
   name: string,
   description?: string,
   image: string,
   href?: string,
+  noExplicitWidth: boolean,
   selectable: boolean,
   selected: boolean,
   onClick: string => void
 }
 
-const Overlay = styled(Flex)`
-  justify-content: ${props => props.justify};
+const Overlay = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   padding: 4px;
@@ -30,8 +36,8 @@ const Overlay = styled(Flex)`
 
 const GalleryGridItem = styled.div`
   & {
-    width: ${props => props.size}px;
-    height: ${props => props.size}px;
+    width: ${props => props.width ? `${props.width}px` : '100%'};
+    ${props => props.height ? `height: ${props.height}px` : ''};
   }
   flex-grow: 0;
   flex-shrink: 0;
@@ -47,10 +53,11 @@ const GalleryItemDiv = styled.div`
       ? `box-shadow: 0px 2px 8px 2px ${colors.blue};`
       : `box-shadow: 0px 0px 4px ${Color(colors.black)
           .alpha(0.5)
-          .string()};`} flex-shrink: 0;
+          .string()};`} 
+  flex-shrink: 0;
   background-image: url(${props => props.background});
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   text-decoration: none;
   width: 100%;
@@ -91,20 +98,19 @@ const GalleryItem = (props: PropsType) => {
     ? GalleryItemDiv.withComponent('a').extend.attrs({ href: props.href })``
     : GalleryItemDiv
 
-  const titleOnly = props.description === undefined
-  const justify = titleOnly ? 'center' : 'flex-start'
-
   return (
     <GalleryGridItem
       onClick={() => props.onClick(props.name)}
-      size={props.size}
+      width={props.width}
+      height={props.height}
+      noExplicitWidth={props.noExplicitWidth}
     >
       <ItemWrapper
         selectable={props.selectable}
         selected={props.selected}
         background={props.image}
       >
-        <Overlay column alignCenter justify={justify}>
+        <Overlay>
           <TitleText bold center color={colors.white}>
             {props.name}
           </TitleText>
@@ -122,6 +128,7 @@ const GalleryItem = (props: PropsType) => {
 GalleryItem.defaultProps = {
   selectable: false,
   selected: false,
+  noExplicitWidth: false,
   onClick: () => {}
 }
 

@@ -4,8 +4,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
-import Gallery, { GalleryItem } from './Gallery'
 import TabSelector from './TabSelector'
+import WorkGallery from './WorkGallery'
 import PhotoGallery from './PhotoGallery'
 import VideoGallery from './VideoGallery'
 import Title from './Title'
@@ -26,12 +26,30 @@ const InnerContainer = styled.div`
 `
 
 const RenderedTabContainer = styled.div`
-    margin: 30px 0;
+  margin: 30px 0;
 `
 
 export default class HomePage extends React.Component<PropsType, StateType> {
   state = {
-    selectedTab: 'Videos'
+    selectedTab: 'Work'
+  }
+
+  tabs = {
+    Work: (
+      <Container>
+        <WorkGallery />
+      </Container>
+    ),
+    Videos: (
+      <Container>
+        <VideoGallery />
+      </Container>
+    ),
+    Photography: (
+      <Container>
+        <PhotoGallery />
+      </Container>
+    )
   }
 
   handleTabChange = (newTab: string) => {
@@ -39,25 +57,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
   }
 
   renderTab() {
-    const content = {
-      Work: (
-          <Container>
-            <Gallery contents={info.projects} />
-          </Container>
-      ),
-      Videos: (
-          <Container>
-            <VideoGallery />
-          </Container>
-      ),
-      Photography: (
-          <Container>
-            <PhotoGallery />
-          </Container>
-      )
-    }
-
-    return this.state.selectedTab ? content[this.state.selectedTab] : null
+    return this.state.selectedTab ? this.tabs[this.state.selectedTab] : null
   }
 
   render(): React.Element<*> {
@@ -74,15 +74,13 @@ export default class HomePage extends React.Component<PropsType, StateType> {
 
           <Container>
             <TabSelector
-              tabs={['Work', 'Videos', 'Photography']}
+              tabs={Object.keys(this.tabs)}
               selectedTab={this.state.selectedTab}
               onTabChange={this.handleTabChange}
             />
           </Container>
 
-            <RenderedTabContainer>
-                {this.renderTab()}
-            </RenderedTabContainer>
+          <RenderedTabContainer>{this.renderTab()}</RenderedTabContainer>
         </InnerContainer>
       </HomePageWrapper>
     )

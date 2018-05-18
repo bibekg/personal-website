@@ -43,34 +43,35 @@ export default {
       icon: resumeIcon
     }
   ],
+  projectsBlurb: "Much of my work involves working with web development technologies, with a particular emphasis on front-end frameworks such as React and Redux. I have also worked extensively with Node/MongoDB in the back-end while working on BruinMeet.",
   projects: [
     {
       name: "Bruin Meet",
-      image: bruinMeetLogo,
+      image: { src: bruinMeetLogo, width: 2560, height: 1162 },
       href: "https://bruinmeet.com",
       description: "A dating app exclusively for UCLA students."
     },
     {
       name: "Unjournal",
-      image: unjournalLogo,
+      image: { src: unjournalLogo, width: 1, height: 1 },
       href: "https://unjournal.surge.sh",
       description: "A place to pour your emotions into words, then watch it disappear into the digital void."
     },
     {
       name: "The Coding School",
-      image: tcsLogo,
+      image: { src: tcsLogo, width: 1, height: 1 },
       href: "https://the-cs.org",
       description: "A non-profit organization teaching coding to students all across the US."
     },
     {
       name: "Visualizing LA",
-      image: visualizingLAImage,
+      image: { src: visualizingLAImage, width: 1, height: 1 },
       href: "http://mihirmathur.github.io/visualizingla",
       description: "A visualization of transportation data in Los Angeles."
     },
     {
       name: "Hyliter",
-      image: hyliterLogo,
+      image: { src: hyliterLogo, width: 1, height: 1 },
       href: "https://chrome.google.com/webstore/detail/hyliter/nhiannhalledfohikpmbclkalcknilcg",
       description: "A Chrome extension that lets you save more useful bookmarks."
     }
@@ -83,19 +84,19 @@ export default {
     {
       name: "Nepal Village Tour",
       description: "The rolling hills of Nepal will always have a special place in my heart.",
-      image: nepalVisitVideoStill,
+      image: { src: nepalVisitVideoStill, height: 1, width: 1 },
       videoId: "7Ge668Ml0eI"
     },
     {
       name: "Hiking the Mist Trail",
       description: "Arguably the best trail in Yosemite.",
-      image: mistTrailVideoStill,
+      image: { src: mistTrailVideoStill, height: 1, width: 1 },
       videoId: "6uRwVQzM5wQ"
     },
     {
       name: "Hiking the Matt Davis Trail",
       description: "A peaceful hike through thick forest and ending on the beautiful California shoreline.",
-      image: mattDavisTrailVideoStill,
+      image: { src: mattDavisTrailVideoStill, height: 1, width: 1 },
       videoId: "FVzuQT1lN1M"
     }
   ]
