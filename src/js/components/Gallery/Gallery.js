@@ -16,9 +16,15 @@ const GalleryDiv = styled.div`
     flex-wrap: nowrap;
     overflow-y: hidden;
     overflow-x: auto;
-    padding: 10px;
     background-color: ${colors.white};
     border: 2px solid ${colors.blue}
+`
+
+const GalleryItemWrapper = styled.div`
+    padding: 5px;
+
+    &:first-child { padding-left: 10px; }
+    &:last-child { padding-right: 10px; }
 `
 
 type GalleryItemType = {
@@ -42,18 +48,20 @@ export default function Gallery(props: PropsType) {
     return (
         <GalleryDiv size={props.size} >
             {props.contents.map(c => (
-                <GalleryItem key={c.name} 
-                    makeLink={props.makeLink}
-                    selectable={props.selectable}
-                    selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}
-                    name={c.name} 
-                    description={c.tagline}
-                    image={c.icon.src} 
-                    href={c.href} 
-                    width={props.size}
-                    height={props.size}
-                    onClick={props.onSelectChange}
-                />
+                <GalleryItemWrapper>
+                    <GalleryItem key={c.name} 
+                        makeLink={props.makeLink}
+                        selectable={props.selectable}
+                        selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}
+                        name={c.name} 
+                        description={c.tagline}
+                        image={c.icon.src} 
+                        href={c.href} 
+                        width={props.size}
+                        height={props.size}
+                        onClick={props.onSelectChange}
+                    />
+                </GalleryItemWrapper>
             ))}
         </GalleryDiv>
     )
