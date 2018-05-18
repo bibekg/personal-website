@@ -15,18 +15,9 @@ const SelectorDiv = styled.div`
   height: ${SELECTOR_HEIGHT}px;
 
   border: 2px solid ${colors.blue};
-  border-radius: ${SELECTOR_HEIGHT}px;
   > * {
     height: 100%;
     flex: 1;
-    &:first-child {
-      border-top-left-radius: ${SELECTOR_HEIGHT}px;
-      border-bottom-left-radius: ${SELECTOR_HEIGHT}px;
-    }
-    &:last-child {
-      border-top-right-radius: ${SELECTOR_HEIGHT}px;
-      border-bottom-right-radius: ${SELECTOR_HEIGHT}px;
-    }
     &:not(:last-child) {
       border-right: 2px solid ${colors.blue};
     }

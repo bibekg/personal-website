@@ -17,13 +17,14 @@ const VideoGalleryDiv = styled.div`
 `
 
 const VideoPlayerDiv = styled.div`
+  ${'' /* width: 100%; */}
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
   padding: 20px 0;
 
-  ${Text}:not(:first-child) {
+  ${Text}:last-child {
     margin-bottom: 15px;
   }
 `
@@ -51,8 +52,10 @@ export default class VideoGallery extends React.Component<
     const { selectedVideo } = this.state
     if (selectedVideo) {
       return <VideoPlayerDiv>
-        <Text size={24} color={colors.blue} bold>{selectedVideo.name}</Text>
-        { selectedVideo.description && <Text>{selectedVideo.description}</Text>}
+        <div>
+          <Text size={24} center color={colors.blue} bold>{selectedVideo.name}</Text>
+          { selectedVideo.tagline && <Text center>{selectedVideo.tagline}</Text>}
+        </div>
         <YouTube videoId={selectedVideo.videoId} />
       </VideoPlayerDiv>
     }

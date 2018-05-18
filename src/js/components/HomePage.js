@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
 import TabSelector from './TabSelector'
-import WorkGallery from './WorkGallery'
+import ProjectGallery from './ProjectGallery'
 import PhotoGallery from './PhotoGallery'
 import VideoGallery from './VideoGallery'
 import Title from './Title'
@@ -37,7 +37,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
   tabs = {
     Work: (
       <Container>
-        <WorkGallery />
+        <ProjectGallery />
       </Container>
     ),
     Videos: (

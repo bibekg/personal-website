@@ -1,24 +1,11 @@
 // @flow
 
-import mediumIcon from './images/medium.svg'
-import facebookIcon from './images/facebook.png'
-import githubIcon from './images/github.svg'
-import linkedInIcon from './images/linkedin.svg'
-import resumeIcon from './images/resume.png'
-
-import bruinMeetLogo from './images/bruinmeet.png'
-import unjournalLogo from './images/unjournal.png'
-import tcsLogo from './images/tcs.png'
-import hyliterLogo from './images/hyliter.png'
-import visualizingLAImage from './images/visualizingla.png'
-
-import uberLogo from './images/uber.png'
-import stanzaLogo from './images/stanza.png'
-
-import nepalVisitVideoStill from './images/video-stills/nepal-village-visit.png'
-import mistTrailVideoStill from './images/video-stills/mist-trail.png'
-import mattDavisTrailVideoStill from './images/video-stills/matt-davis-trail.png'
-import mayaDeuMalaiVideoStill from './images/video-stills/maya-deu-malai.png'
+import mediumIcon from './images/icons/medium.svg'
+import facebookIcon from './images/icons/facebook.png'
+import githubIcon from './images/icons/github.svg'
+import linkedInIcon from './images/icons/linkedin.svg'
+import resumeIcon from './images/icons/resume.png'
+import homeIcon from './images/icons/home.svg'
 
 export default {
   name: { first: "Bibek", last: "Ghimire" },
@@ -47,56 +34,105 @@ export default {
   projects: [
     {
       name: "Bruin Meet",
-      image: { src: bruinMeetLogo, width: 2560, height: 1162 },
-      href: "https://bruinmeet.com",
-      description: "A dating app exclusively for UCLA students."
+      icon: { src: require('./images/bruinmeet/icon.png'), width: 2560, height: 1162 },
+      tagline: "UCLA-exclusive dating app.",
+      description: [
+        "BruinMeet is a dating app built for UCLA students by UCLA students. Bruin Meet's core belief is that the best way to get to know someone is to meet them IRL. That's why it prioritizes getting its users off the app and on a date as quickly as possible.",
+        "I joined the team in late 2017 as a front-end developer and led the effort to port the existing Handlebars templated front-end into a React app.",
+        "I later rearchitected the application's backend to use a graph-based model to represent the product's userbase and match relationships."
+      ],
+      links: [
+        { name: "Main", href: "https://bruinmeet.com", icon: homeIcon }
+      ],
+      screenshots: [
+        { src: require('./images/bruinmeet/features-banner.png'), width: 2250, height: 1152 }
+      ]
     },
     {
       name: "Unjournal",
-      image: { src: unjournalLogo, width: 1, height: 1 },
+      icon: { src: require('./images/unjournal/icon.png'), width: 1, height: 1 },
       href: "https://unjournal.surge.sh",
-      description: "A place to pour your emotions into words, then watch it disappear into the digital void."
+      tagline: "Set a timer, write, delete.",
+      description: [
+        "Unjournal is a place to pour your thoughts/emotions into words, then let it disappear into the digital void. It's an fresh and relaxing approach to writing."
+      ],
+      links: [
+        { name: 'Home', href: "https://unjournal.surge.sh", icon: homeIcon },
+        { name: 'Github', href: "https://github.com/bibekg/unjournal", icon: githubIcon }
+      ],
+      screenshots: [
+        { src: require('./images/unjournal/homepage.png'), width: 1000, height: 639 },
+        { src: require('./images/unjournal/delete-demo.gif'), width: 600, height: 362 }
+      ]
     },
     {
       name: "The Coding School",
-      image: { src: tcsLogo, width: 1, height: 1 },
+      icon: { src: require('./images/tcs/icon.png'), width: 1, height: 1 },
       href: "https://the-cs.org",
-      description: "A non-profit organization teaching coding to students all across the US."
+      tagline: "Non-profit organization providing coding education.",
+      description: [
+        "The Coding School is a non-profit organization dedicated to empowering the next generation of leaders and problem solvers through code.",
+        "I designed, developed, and deployed the organization's website while learning React."
+      ],
+      links: [
+        { name: 'Main', href: 'https://the-cs.org', icon: homeIcon },
+        { name: 'Github', href: 'https://github.com/the-coding-school/the-cs', icon: githubIcon }
+      ],
+      screenshots: [
+        { src: require('./images/tcs/homepage.png'), width: 1000, height: 639 }
+      ]
     },
     {
       name: "Visualizing LA",
-      image: { src: visualizingLAImage, width: 1, height: 1 },
+      icon: { src: require('./images/visualizingla/icon.png'), width: 1, height: 1 },
       href: "http://mihirmathur.github.io/visualizingla",
-      description: "A visualization of transportation data in Los Angeles."
+      tagline: "A visualization of transportation data in Los Angeles.",
+      description: [
+        "Visualizing LA is a UCLA Creative Labs project that tells the story of LA's transporation -- from driving, to parking, to flying out of the city.",
+        "I used d3.js to analyz 39 months of vehicle and air traffic at Los Angeles International Airport, and found a close correlation between the number of flights with the number of cars arriving and departing from the airport."
+      ],
+      links: [
+        { name: 'Main', href: 'https://mihirmathur.github.io/visualizingla/', icon: homeIcon },
+        { name: 'Github', href: 'https://github.com/Mihirmathur/visualizingla', icon: githubIcon }
+      ],
+      screenshots: [
+        { src: require('./images/visualizingla/my-viz.png'), width: 1000, height: 546 }
+      ]
     },
     {
       name: "Hyliter",
-      image: { src: hyliterLogo, width: 1, height: 1 },
+      icon: { src: require('./images/hyliter/icon.png'), width: 1, height: 1 },
       href: "https://chrome.google.com/webstore/detail/hyliter/nhiannhalledfohikpmbclkalcknilcg",
-      description: "A Chrome extension that lets you save more useful bookmarks."
+      tagline: "A Chrome extension that lets you save more useful bookmarks.",
+      description: [
+        "Hyliter is a Google Chrome extension that lets you save snippets of text you find as contextual bookmarks.",
+      ],
+      links: [
+        { name: 'Main', href: 'https://chrome.google.com/webstore/detail/hyliter/nhiannhalledfohikpmbclkalcknilcg', icon: homeIcon },
+        { name: 'Github', href: 'https://github.com/bibekg/Hyliter', icon: githubIcon }
+      ],
+      screenshots: [
+        { src: require('./images/hyliter/preview.jpg'), width: 640, height: 400 }
+      ]
     }
-  ],
-  work: [
-    { name: "Uber", image: uberLogo },
-    { name: "Stanza", image: stanzaLogo }
   ],
   videos: [
     {
       name: "Nepal Village Tour",
-      description: "The rolling hills of Nepal will always have a special place in my heart.",
-      image: { src: nepalVisitVideoStill, height: 1, width: 1 },
+      tagline: "The rolling hills of Nepal will always have a special place in my heart.",
+      icon: { src: require('./images/video-stills/nepal-village-visit.png'), height: 1, width: 1 },
       videoId: "7Ge668Ml0eI"
     },
     {
       name: "Hiking the Mist Trail",
-      description: "Arguably the best trail in Yosemite.",
-      image: { src: mistTrailVideoStill, height: 1, width: 1 },
+      tagline: "Arguably the best trail in Yosemite.",
+      icon: { src: require('./images/video-stills/mist-trail.png'), height: 1, width: 1 },
       videoId: "6uRwVQzM5wQ"
     },
     {
       name: "Hiking the Matt Davis Trail",
-      description: "A peaceful hike through thick forest and ending on the beautiful California shoreline.",
-      image: { src: mattDavisTrailVideoStill, height: 1, width: 1 },
+      tagline: "A peaceful hike ending on the beautiful California shoreline.",
+      icon: { src: require('./images/video-stills/matt-davis-trail.png'), height: 1, width: 1 },
       videoId: "FVzuQT1lN1M"
     }
   ]

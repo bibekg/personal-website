@@ -18,6 +18,7 @@ const GalleryDiv = styled.div`
     overflow-x: auto;
     padding: 10px;
     background-color: ${colors.white};
+    border: 2px solid ${colors.blue}
 `
 
 type GalleryItemType = {
@@ -31,6 +32,7 @@ type PropsType = {
     name: string,
     size: number,
     contents: Array<GalleryItemType>,
+    makeLink: boolean,
     selectable: boolean,
     selectedItem?: GalleryItemType,
     onSelectChange?: (string) => void
@@ -41,11 +43,12 @@ export default function Gallery(props: PropsType) {
         <GalleryDiv size={props.size} >
             {props.contents.map(c => (
                 <GalleryItem key={c.name} 
+                    makeLink={props.makeLink}
                     selectable={props.selectable}
                     selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}
                     name={c.name} 
-                    description={c.description}
-                    image={c.image.src} 
+                    description={c.tagline}
+                    image={c.icon.src} 
                     href={c.href} 
                     width={props.size}
                     height={props.size}
@@ -58,5 +61,6 @@ export default function Gallery(props: PropsType) {
 
 Gallery.defaultProps = {
     size: 150,
-    selectable: false
+    selectable: false,
+    makeLink: false
 }

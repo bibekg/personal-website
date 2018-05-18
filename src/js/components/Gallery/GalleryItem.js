@@ -21,7 +21,8 @@ type PropsType = {
   noExplicitWidth: boolean,
   selectable: boolean,
   selected: boolean,
-  onClick: string => void
+  onClick: string => void,
+  makeLink: boolean
 }
 
 const Overlay = styled.div`
@@ -94,7 +95,7 @@ const TitleText = Text.extend`
 
 const GalleryItem = (props: PropsType) => {
   // Use a <a/> tag if there is a link associated with this gallery item
-  const ItemWrapper = props.href
+  const ItemWrapper = props.makeLink && props.href
     ? GalleryItemDiv.withComponent('a').extend.attrs({ href: props.href })``
     : GalleryItemDiv
 
