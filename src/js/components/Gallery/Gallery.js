@@ -48,8 +48,8 @@ export default function Gallery(props: PropsType) {
     return (
         <GalleryDiv size={props.size} >
             {props.contents.map(c => (
-                <GalleryItemWrapper>
-                    <GalleryItem key={c.name} 
+                <GalleryItemWrapper key={c.name}>
+                    <GalleryItem
                         makeLink={props.makeLink}
                         selectable={props.selectable}
                         selected={props.selectable && props.selectedItem && c.name === props.selectedItem.name}

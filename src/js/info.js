@@ -6,6 +6,7 @@ import githubIcon from './images/icons/github.svg'
 import linkedInIcon from './images/icons/linkedin.svg'
 import resumeIcon from './images/icons/resume.png'
 import homeIcon from './images/icons/home.svg'
+import npmIcon from './images/icons/npm.png'
 
 export default {
   name: { first: "Bibek", last: "Ghimire" },
@@ -33,8 +34,23 @@ export default {
   projectsBlurb: "Much of my work involves working with web development technologies, with a particular emphasis on front-end frameworks such as React and Redux. I have also worked extensively with Node/MongoDB in the back-end while working on BruinMeet.",
   projects: [
     {
+      name: "React Grid Date Picker",
+      icon: { src: require('./images/react-grid-date-picker/icon.png'), width: 1, height: 1 },
+      tagline: "React component npm module",
+      description: [
+        "While working on an auto-date scheduling feature for BruinMeet, the team created a component that lets users input their availability for the next week. Pretty soon, other members of DevX - a UCLA club focused on building software projects - were asking for the component to use in their own projects."
+      ],
+      links: [
+        { name: "NPM", href: 'https://www.npmjs.com/package/react-grid-date-picker', icon: npmIcon },
+        { name: "Github", href: 'https://github.com/bibekg/react-grid-date-picker', icon: githubIcon }
+      ],
+      screenshots: [
+        { src: require('./images/react-grid-date-picker/demo.png'), width: 1000, height: 479 }
+      ]
+    },
+    {
       name: "Bruin Meet",
-      icon: { src: require('./images/bruinmeet/icon.png'), width: 2560, height: 1162 },
+      icon: { src: require('./images/bruinmeet/icon.png'), width: 1, height: 1 },
       tagline: "UCLA-exclusive dating app.",
       description: [
         "BruinMeet is a dating app built for UCLA students by UCLA students. Bruin Meet's core belief is that the best way to get to know someone is to meet them IRL. That's why it prioritizes getting its users off the app and on a date as quickly as possible.",
