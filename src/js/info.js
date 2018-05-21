@@ -36,7 +36,7 @@ export default {
     {
       name: "React Grid Date Picker",
       icon: { src: require('./images/react-grid-date-picker/icon.png'), width: 1, height: 1 },
-      tagline: "React component npm module",
+      tagline: "React component npm module.",
       description: [
         "While working on an auto-date scheduling feature for BruinMeet, the team created a component that lets users input their availability for the next week. Pretty soon, other members of DevX - a UCLA club focused on building software projects - were asking for the component to use in their own projects."
       ],
