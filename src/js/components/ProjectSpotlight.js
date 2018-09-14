@@ -62,14 +62,18 @@ export default function ProjectSpotlight(props: PropsType) {
         ))}
       </SocialLinks>}
 
-      {description && description.map(d => <DescriptionText key={d} paragraph>{d}</DescriptionText>)}
-
-      {screenshots &&
-        <PhotoGallery
-          columns={1}
-          photos={screenshots}
-        />
-      }
+      {description && description.map(d => {
+        if (typeof d === 'string') {
+          return <DescriptionText key={d} paragraph>{d}</DescriptionText>
+        }
+        if (typeof d === 'object' && d.screenshots) {
+          return <PhotoGallery
+            columns={1}
+            photos={d.screenshots}
+          />
+        }
+        return null
+      })}
 
       {CustomRender && <CustomRender />}
 

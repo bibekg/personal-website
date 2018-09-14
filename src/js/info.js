@@ -60,14 +60,16 @@ export default {
       tagline: "UCLA-exclusive dating app.",
       description: [
         "BruinMeet is a dating app built for UCLA students by UCLA students. Bruin Meet's core belief is that the best way to get to know someone is to meet them IRL. That's why it prioritizes getting its users off the app and on a date as quickly as possible.",
+        {
+          screenshots: [
+            { src: require('./images/bruinmeet/features-banner.png'), width: 2250, height: 1152 }
+          ]
+        },
         "I joined the team in late 2017 as a front-end developer and led the effort to port the existing Handlebars templated front-end into a React app.",
         "I later rearchitected the application's backend to use a graph-based model to represent the product's userbase and match relationships."
       ],
       links: [
         { name: "Main", href: "https://www.bruinmeet.com", icon: homeIcon }
-      ],
-      screenshots: [
-        { src: require('./images/bruinmeet/features-banner.png'), width: 2250, height: 1152 }
       ]
     },
     {
@@ -76,15 +78,17 @@ export default {
       href: "https://unjournal.surge.sh",
       tagline: "Set a timer, write, delete.",
       description: [
-        "Unjournal is a place to pour your thoughts/emotions into words, then let it disappear into the digital void. It's an fresh and relaxing approach to writing."
+        "Unjournal is a place to pour your thoughts/emotions into words, then let it disappear into the digital void. It's an fresh and relaxing approach to writing.",
+        {
+          screenshots: [
+            { src: require('./images/unjournal/homepage.png'), width: 1000, height: 639 },
+            { src: require('./images/unjournal/delete-demo.gif'), width: 600, height: 362 }
+          ]
+        }
       ],
       links: [
         { name: 'Home', href: "https://unjournal.surge.sh", icon: homeIcon },
         { name: 'Github', href: "https://github.com/bibekg/unjournal", icon: githubIcon }
-      ],
-      screenshots: [
-        { src: require('./images/unjournal/homepage.png'), width: 1000, height: 639 },
-        { src: require('./images/unjournal/delete-demo.gif'), width: 600, height: 362 }
       ]
     },
     {
@@ -94,14 +98,16 @@ export default {
       tagline: "Non-profit organization providing coding education.",
       description: [
         "The Coding School is a non-profit organization dedicated to empowering the next generation of leaders and problem solvers through code.",
+        {
+          screenshots: [
+            { src: require('./images/tcs/homepage.png'), width: 1000, height: 639 }
+          ]
+        },
         "I designed, developed, and deployed the organization's website while learning React."
       ],
       links: [
         { name: 'Main', href: 'https://the-cs.org', icon: homeIcon },
         { name: 'Github', href: 'https://github.com/the-coding-school/the-cs', icon: githubIcon }
-      ],
-      screenshots: [
-        { src: require('./images/tcs/homepage.png'), width: 1000, height: 639 }
       ]
     },
     {
@@ -111,14 +117,16 @@ export default {
       tagline: "A visualization of transportation data in Los Angeles.",
       description: [
         "Visualizing LA is a UCLA Creative Labs project that tells the story of LA's transporation -- from driving, to parking, to flying out of the city.",
-        "I used d3.js to analyz 39 months of vehicle and air traffic at Los Angeles International Airport, and found a close correlation between the number of flights with the number of cars arriving and departing from the airport."
+        {
+          screenshots: [
+            { src: require('./images/visualizingla/my-viz.png'), width: 1000, height: 546 }
+          ]
+        },
+        "I used d3.js to analyze 39 months of vehicle and air traffic at Los Angeles International Airport, and found a close correlation between the number of flights with the number of cars arriving and departing from the airport."
       ],
       links: [
         { name: 'Main', href: 'https://mihirmathur.github.io/visualizingla/', icon: homeIcon },
         { name: 'Github', href: 'https://github.com/Mihirmathur/visualizingla', icon: githubIcon }
-      ],
-      screenshots: [
-        { src: require('./images/visualizingla/my-viz.png'), width: 1000, height: 546 }
       ]
     },
     {
@@ -128,13 +136,15 @@ export default {
       tagline: "A Chrome extension that lets you save more useful bookmarks.",
       description: [
         "Hyliter is a Google Chrome extension that lets you save snippets of text you find as contextual bookmarks.",
+        {
+          screenshots: [
+            { src: require('./images/hyliter/preview.jpg'), width: 640, height: 400 }
+          ]
+        }
       ],
       links: [
         { name: 'Main', href: 'https://chrome.google.com/webstore/detail/hyliter/nhiannhalledfohikpmbclkalcknilcg', icon: homeIcon },
         { name: 'Github', href: 'https://github.com/bibekg/Hyliter', icon: githubIcon }
-      ],
-      screenshots: [
-        { src: require('./images/hyliter/preview.jpg'), width: 640, height: 400 }
       ]
     }
   ],
