@@ -12,8 +12,13 @@ export default {
   name: { first: "Bibek", last: "Ghimire" },
   tagline: "UCLA CS '19 • Software Developer",
   bio: "Hi, my name is Bibek Ghimire. I’m a third year Computer Science student at UCLA with a passion for software engineering and web development. When I’m not coding, I’m either reading, writing, running, hiking, or playing guitar.",
+  resumeLink: "https://drive.google.com/file/d/0B8Xo4dQ-Hu_CbWw2U2dJR2tyWUU/view?usp=sharing",
   links: [
-    { name: "Medium", href: "https://medium.com/@bibekg", icon: mediumIcon },
+    { 
+      name: "Medium", 
+      href: "https://medium.com/@bibekg", 
+      icon: mediumIcon 
+    },
     {
       name: "Facebook",
       href: "https://facebook.com/bibekgg",
@@ -27,7 +32,7 @@ export default {
     },
     {
       name: "Resume",
-      href: "https://drive.google.com/file/d/0B8Xo4dQ-Hu_CbWw2U2dJR2tyWUU/view?usp=sharing",
+      href: "/resume",
       icon: resumeIcon
     }
   ],

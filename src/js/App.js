@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts } from './styles'
 import HomePage from './components/HomePage'
+import ResumeRedirect from './components/ResumeRedirect'
 
 injectGlobal([`
     @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,700');
@@ -45,6 +46,7 @@ class App extends React.Component<PropsType> {
                 <BrowserRouter>
                     <Switch>
                         <Route exact path='/' component={HomePage} />
+                        <Route path='/resume' component={ResumeRedirect} />
                     </Switch>
                 </BrowserRouter>
             </AppWrapper>
