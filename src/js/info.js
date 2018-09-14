@@ -156,6 +156,11 @@ export default {
       videoId: "7Ge668Ml0eI"
     },
     {
+      name: "Ram Sailee - Bipul Chettri (cover)",
+      icon: { src: require('./images/video-stills/ram-sailee-cover.png'), height: 1, width: 1 },
+      videoId: "BQ4zjx6bxAw"
+    },
+    {
       name: "Hiking the Mist Trail",
       tagline: "Arguably the best trail in Yosemite.",
       icon: { src: require('./images/video-stills/mist-trail.png'), height: 1, width: 1 },
