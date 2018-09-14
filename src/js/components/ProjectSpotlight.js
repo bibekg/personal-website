@@ -51,7 +51,7 @@ type PropsType = {
 }
 
 export default function ProjectSpotlight(props: PropsType) {
-  const { name, tagline, screenshots, description, links } = props
+  const { name, tagline, screenshots, description, links, CustomRender } = props
   return (
     <SpotlightDiv>
       <Title>{name}</Title>
@@ -70,6 +70,8 @@ export default function ProjectSpotlight(props: PropsType) {
           photos={screenshots}
         />
       }
+
+      {CustomRender && <CustomRender />}
 
     </SpotlightDiv>
   )
