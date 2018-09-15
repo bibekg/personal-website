@@ -3,7 +3,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Text from './Text'
-import { colors } from '../styles'
+import { colors, shadows } from '../styles'
 
 const SELECTOR_HEIGHT = 40
 
@@ -14,18 +14,33 @@ const SelectorDiv = styled.div`
   width: 100%;
   height: ${SELECTOR_HEIGHT}px;
 
-  border: 2px solid ${colors.blue};
+  box-shadow: ${shadows.default};
+  border-radius: 5px;
   > * {
     height: 100%;
     flex: 1;
     &:not(:last-child) {
-      border-right: 2px solid ${colors.blue};
+      position: relative;
+
+      ${'' /* Small (half-height) border between tabs */}
+      &:after {
+        content : "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        height: 50%;  /* or 100px */
+        transform: translateY(-50%);
+        border-right:1px solid ${colors.lightGrey};
+      }
     }
+
   }
 `
 
 const TabItemDiv = styled.div`
-  background-color: ${props => (props.selected ? colors.blue : colors.white)}; padding: 5px 10px;
+  background-color: ${colors.white};
+  border-bottom: ${props => props.selected ? `2px solid ${colors.blue}` : `2px solid transparent`};
   cursor: pointer;
   text-align: center;
   display: flex;

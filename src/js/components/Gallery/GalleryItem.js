@@ -5,7 +5,7 @@ import Color from 'color'
 import styled from 'styled-components'
 import Flex from 'styled-flex-component'
 import Text from '../Text'
-import { colors } from '../../styles'
+import { colors, shadows } from '../../styles'
 import { computeSizes } from '../../utils'
 
 const getPadding = (size: number) => size / 20
@@ -43,18 +43,17 @@ const GalleryGridItem = styled.div`
   flex-grow: 0;
   flex-shrink: 0;
   margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const GalleryItemDiv = styled.div`
   display: block;
   position: relative;
-  transition: 0.3s ease box-shadow;
-  ${props =>
-    props.selected
-      ? `box-shadow: 0px 2px 8px 2px ${colors.blue};`
-      : `box-shadow: 0px 0px 4px ${Color(colors.black)
-          .alpha(0.5)
-          .string()};`} 
+  transition: 0.3s ease outline, 0.3s ease transform;
+  box-shadow: ${props => props.selected ? shadows.blue : shadows.light};
+  transform: scale(${props => props.selected ? 1 : 0.9});
   flex-shrink: 0;
   background-image: url(${props => props.background});
   background-position: center;

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Color from 'color'
 import Flex from 'styled-flex-component'
 import GalleryItem from './GalleryItem'
-import { colors } from '../../styles'
+import { colors, shadows } from '../../styles'
 
 const GalleryDiv = styled.div`
     width: 100%;
@@ -17,7 +17,7 @@ const GalleryDiv = styled.div`
     overflow-y: hidden;
     overflow-x: auto;
     background-color: ${colors.white};
-    border: 2px solid ${colors.blue}
+    box-shadow: ${shadows.default};
 `
 
 const GalleryItemWrapper = styled.div`

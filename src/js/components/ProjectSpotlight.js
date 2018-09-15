@@ -68,6 +68,7 @@ export default function ProjectSpotlight(props: PropsType) {
         }
         if (typeof d === 'object' && d.screenshots) {
           return <PhotoGallery
+            key={d.screenshots[0].src}
             columns={1}
             photos={d.screenshots}
           />
