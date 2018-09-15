@@ -23,7 +23,7 @@ const HomePageWrapper = styled.div`
 
 const InnerContainer = styled.div`
   max-width: 750px;
-  width: 100%;
+  width: 95%;
 `
 
 const RenderedTabContainer = styled.div`
@@ -54,11 +54,11 @@ export default class HomePage extends React.Component<PropsType, StateType> {
     },
     Photography: {
       emoji: "📸",
-      component: () => {
+      component: () => (
         <Container>
           <PhotoGallery />
         </Container>
-      }
+      )
     },
     Writing: {
       emoji: "📝",
