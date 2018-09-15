@@ -1,15 +1,15 @@
 // @flow
 
-const MOBILE_BREAKPOINT = 750;
+import {breakpoints} from './index'
 
 const ifMobile = content => `
-  @media screen and (max-width: ${MOBILE_BREAKPOINT - 1}px) {
+  @media screen and (max-width: ${breakpoints.default - 1}px) {
     ${content}
   }
 `
 
 const ifNotMobile = content => `
-  @media screen and (min-width: ${MOBILE_BREAKPOINT}px ) {
+  @media screen and (min-width: ${breakpoints.default}px ) {
     ${content}
   }
 `

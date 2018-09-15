@@ -2,14 +2,11 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { colors } from '../styles'
+import { colors, breakpoints } from '../styles'
 import info from '../info'
-import constants from '../constants'
 import profilePicture from '../images/me-frame-mixed.png'
 import Flex from 'styled-flex-component'
 import Text from './Text'
-
-const BREAKPOINT = constants.breakpoint
 
 const Card = styled.div`
     & > *:first-child {
@@ -17,13 +14,13 @@ const Card = styled.div`
     }
 
     display: flex;
-    @media screen and (max-width: ${BREAKPOINT - 1}px) {
+    @media screen and (max-width: ${breakpoints.default - 1}px) {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    @media screen and (min-width: ${BREAKPOINT}px) {
+    @media screen and (min-width: ${breakpoints.default}px) {
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
@@ -33,11 +30,11 @@ const Card = styled.div`
 const TextInfo = styled.div`
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: ${BREAKPOINT - 1}px) {
+    @media screen and (max-width: ${breakpoints.default - 1}px) {
         align-items: center;
     }
 
-    @media screen and (min-width: ${BREAKPOINT}px) {
+    @media screen and (min-width: ${breakpoints.default}px) {
         align-items: flex-start;
     }
 `

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Title from './Title'
 import Text from './Text'
-import constants from '../constants'
+import {breakpoints, shadows} from '../styles'
 
 const Box = styled.a`
   background-color: white;
@@ -14,7 +14,7 @@ const Box = styled.a`
   flex-direction: column;
   align-items: flex-start;
   
-  @media (min-width: ${constants.breakpoint}px) {
+  @media (min-width: ${breakpoints.default}px) {
     flex-direction: row;
   }
   text-decoration: none;
