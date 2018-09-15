@@ -172,5 +172,31 @@ export default {
       icon: { src: require('./images/video-stills/matt-davis-trail.png'), height: 1, width: 1 },
       videoId: "FVzuQT1lN1M"
     }
+  ],
+  writing: [
+    {
+      title: "The Most Expressive Way to Journal is to Unjournal",
+      image: { src: "https://cdn-images-1.medium.com/max/1200/1*eFHvN-ix54aAORy5gKObYg.png", height: 1, width: 1 },
+      link: "https://medium.com/@bibekg/the-most-expressive-way-to-journal-is-to-unjournal-283bd8e9b72c",
+      description: "For the past five years, I’ve been journaling in various ways. I started off scrawling down a 10-minute stream of consciousness each night into a physical notebook...",
+    },
+    {
+      title: "Becoming BruinMeet Tech Lead",
+      image: { src: "https://cdn-images-1.medium.com/max/2000/1*koG5mtl7rS1z5HOVuIx1lQ.png", height: 1, width: 1 },
+      link: "https://medium.com/bruinmeet/becoming-bruinmeet-tech-lead-cc4567ed2688",
+      description: "From September 2017 to April 2018 (~7 months), I worked as front-end developer for BruinMeet. With months of self-learning React and a summer internship behind me, I was...",
+    },
+    {
+      title: "I hiked every weekend this quarter. Here’s why.",
+      image: { src: "https://cdn-images-1.medium.com/max/1600/1*LGgWWF3fjDz2xBI0wMwPEg@2x.jpeg", height: 1, width: 1 },
+      link: "https://medium.com/@bibekg/i-hiked-every-weekend-this-quarter-heres-why-600528c53bff",
+      description: "For several of the past years, my parents and I talked a lot about taking a family trip to Hawaii. But every time we started thinking about the details, we’d come up with...",
+    },
+    {
+      title: "I architected BruinMeet’s front-end. These are the technologies I used and why.",
+      image: { src: "https://cdn-images-1.medium.com/max/2000/1*UfsLW0te2nCRv8JorGENQg.png", height: 1, width: 1 },
+      link: "https://medium.com/bruinmeet/i-architected-bruinmeets-front-end-these-are-the-technologies-i-used-and-why-ec60a8b5b238",
+      description: "For the last five months, I’ve been working as a web developer for Bruin Meet — a dating app exclusively for UCLA students. When I came on as a front-end developer, the OG..."
+    }
   ]
 };

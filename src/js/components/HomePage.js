@@ -8,6 +8,7 @@ import TabSelector from './TabSelector'
 import ProjectGallery from './ProjectGallery'
 import PhotoGallery from './PhotoGallery'
 import VideoGallery from './VideoGallery'
+import WritingGallery from './WritingGallery'
 import Title from './Title'
 import Container from './Container'
 import info from '../info'
@@ -35,21 +36,38 @@ export default class HomePage extends React.Component<PropsType, StateType> {
   }
 
   tabs = {
-    Work: (
-      <Container>
-        <ProjectGallery />
-      </Container>
-    ),
-    Videos: (
-      <Container>
-        <VideoGallery />
-      </Container>
-    ),
-    Photography: (
-      <Container>
-        <PhotoGallery />
-      </Container>
-    )
+    Work: {
+      emoji: '💼',
+      component: () => (
+        <Container>
+          <ProjectGallery />
+        </Container>
+      )
+    },
+    Videos: {
+      emoji: "🎬",
+      component: () => (
+        <Container>
+          <VideoGallery />
+        </Container>
+      )
+    },
+    Photography: {
+      emoji: "📸",
+      component: () => {
+        <Container>
+          <PhotoGallery />
+        </Container>
+      }
+    },
+    Writing: {
+      emoji: "📝",
+      component: () => (
+        <Container>
+          <WritingGallery />
+        </Container>
+      )
+    }
   }
 
   handleTabChange = (newTab: string) => {
@@ -57,7 +75,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
   }
 
   renderTab() {
-    return this.state.selectedTab ? this.tabs[this.state.selectedTab] : null
+    return this.state.selectedTab ? this.tabs[this.state.selectedTab].component() : null
   }
 
   render(): React.Element<*> {
@@ -74,7 +92,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
 
           <Container>
             <TabSelector
-              tabs={Object.keys(this.tabs)}
+              tabs={this.tabs}
               selectedTab={this.state.selectedTab}
               onTabChange={this.handleTabChange}
             />

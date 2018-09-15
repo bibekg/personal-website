@@ -31,10 +31,13 @@ const TabItemDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  & > * {
+    width: 100%;
+  }
 `
 
 type PropsType = {
-  tabs: Array<string>,
+  tabs: { [string]: TabInfoType },
   selectedTab: string,
   onTabChange: string => void
 }
@@ -42,17 +45,18 @@ type PropsType = {
 export default function TabSelector(props: PropsType): React.Element<*> {
   return (
     <SelectorDiv>
-      {props.tabs.map(tab => (
+      {Object.keys(props.tabs).map(tabKey => (
         <TabItemDiv
-          key={tab}
-          onClick={() => props.onTabChange(tab)}
-          selected={props.selectedTab === tab}
+          key={tabKey}
+          onClick={() => props.onTabChange(tabKey)}
+          selected={props.selectedTab === tabKey}
         >
           <Text
-            color={props.selectedTab === tab ? colors.white : colors.black}
+            title={tabKey}
+            color={props.selectedTab === tabKey ? colors.white : colors.black}
             bold
           >
-            {tab}
+            {props.tabs[tabKey].emoji}
           </Text>
         </TabItemDiv>
       ))}

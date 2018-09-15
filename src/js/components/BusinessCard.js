@@ -4,11 +4,12 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from '../styles'
 import info from '../info'
+import constants from '../constants'
 import profilePicture from '../images/me-frame-mixed.png'
 import Flex from 'styled-flex-component'
 import Text from './Text'
 
-const BREAKPOINT = 650;
+const BREAKPOINT = constants.breakpoint
 
 const Card = styled.div`
     & > *:first-child {
