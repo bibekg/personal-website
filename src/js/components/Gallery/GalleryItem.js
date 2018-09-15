@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react'
-import Color from 'color'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 import Flex from 'styled-flex-component'
 import Text from '../Text'
 import { colors, shadows } from '../../styles'
@@ -71,9 +71,7 @@ const GalleryItemDiv = styled.div`
   }
 
   ${Overlay} {
-    background-color: ${Color(colors.blue)
-      .alpha(0.95)
-      .string()};
+    background-color: ${rgba(colors.blue, 0.95)};
     position: absolute;
     top: 0;
     left: 0;

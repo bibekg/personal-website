@@ -13,7 +13,6 @@
     "image-optim": "imageOptim --directory src/js/images"
   },
   "dependencies": {
-    "color": "^3.0.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "polished": "^2.0.3",
     "react": "^16.2.0",

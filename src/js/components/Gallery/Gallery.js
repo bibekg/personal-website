@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import Color from 'color'
 import Flex from 'styled-flex-component'
 import GalleryItem from './GalleryItem'
 import { colors, shadows } from '../../styles'
