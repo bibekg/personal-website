@@ -175,6 +175,12 @@ export default {
   ],
   writing: [
     {
+      title: "Deploy a React/Node App Using TravisCI and AWS",
+      image: { src: "https://cdn-images-1.medium.com/max/1600/1*v6B8sC0v2QDnQOxaaN_zdg.png", height: 1, width: 1 },
+      link: "https://medium.com/ucladevx/deploy-a-react-node-app-using-travisci-and-aws-b41e3b09110b",
+      description: "Let’s say you have a web app project built with React on the front-end and Node on the back-end API. You have the front- and back-end split up into separate GitHub...",
+    },
+    {
       title: "The Most Expressive Way to Journal is to Unjournal",
       image: { src: "https://cdn-images-1.medium.com/max/1200/1*eFHvN-ix54aAORy5gKObYg.png", height: 1, width: 1 },
       link: "https://medium.com/@bibekg/the-most-expressive-way-to-journal-is-to-unjournal-283bd8e9b72c",

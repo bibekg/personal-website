@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Title from './Title'
 import Text from './Text'
-import {breakpoints, shadows} from '../styles'
+import {colors, breakpoints, shadows} from '../styles'
 
 const Image = styled.div`
   background-image: url(${props => props.image});
@@ -31,6 +31,7 @@ const Box = styled.a`
     & > ${Image} {
       height: auto;
       width: 30%;
+      border-right: 1px solid ${colors.almostWhite};
     }
   }
   text-decoration: none;
