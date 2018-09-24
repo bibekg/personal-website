@@ -5,7 +5,6 @@ import ScheduleSelector from 'react-schedule-selector'
 import {shadows} from '../styles'
 
 const Wrapper = styled.div`
-  background-color: white;
   box-shadow: ${shadows.light};
   padding: 20px 40px;
 `

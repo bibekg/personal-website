@@ -2,8 +2,6 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { rgba } from 'polished'
-
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
 import TabSelector from './TabSelector'
@@ -14,7 +12,6 @@ import WritingGallery from './WritingGallery'
 import Title from './Title'
 import Container from './Container'
 import info from '../info'
-import { colors } from '../styles'
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -22,7 +19,6 @@ const HomePageWrapper = styled.div`
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: linear-gradient(0deg, ${rgba(colors.blue, 0.15)}, ${colors.white});
 `
 
 const InnerContainer = styled.div`

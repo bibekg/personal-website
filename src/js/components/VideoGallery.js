@@ -19,7 +19,7 @@ const VideoGalleryDiv = styled.div`
 `
 
 const VideoPlayerDiv = styled.div`
-  background-color: white;
+  ${'' /* width: 100%; */}
   box-shadow: ${shadows.light};
   display: flex;
   flex-direction: column;

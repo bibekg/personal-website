@@ -1,7 +1,7 @@
 import {rgba} from 'polished'
 
 export const colors = {
-    blue: '#4650df',
+    blue: 'rgb(70,80,223)',
     white: '#fefeff',
     black: '#50514f',
     grey: '#7e807d',
