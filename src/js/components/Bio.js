@@ -7,18 +7,25 @@ import info from '../info'
 import { ifMobile } from '../styles/helpers'
 
 const BioDiv = styled.div`
-    padding: 10px 0;
-    margin: 25px 0;
+  padding: 10px 0;
+  margin: 25px 0;
+  & > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
-    ${ifMobile(`
+  ${ifMobile(`
         text-align: center;
-    `)}
+    `)};
 `
 
 export default function Bio() {
-    return (
-        <BioDiv>
-            <Text paragraph>{info.bio}</Text>
-        </BioDiv>
-    )
+  return (
+    <BioDiv>
+      {info.bio.map(bioParagraph => (
+        <Text key={bioParagraph} paragraph>
+          {bioParagraph}
+        </Text>
+      ))}
+    </BioDiv>
+  )
 }

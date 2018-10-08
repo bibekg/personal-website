@@ -44,8 +44,16 @@ export default class HomePage extends React.Component<PropsType, StateType> {
         </Container>
       )
     },
+    Writing: {
+      emoji: '📝',
+      component: () => (
+        <Container>
+          <WritingGallery />
+        </Container>
+      )
+    },
     Videos: {
-      emoji: "🎬",
+      emoji: '🎬',
       component: () => (
         <Container>
           <VideoGallery />
@@ -53,18 +61,10 @@ export default class HomePage extends React.Component<PropsType, StateType> {
       )
     },
     Photography: {
-      emoji: "📸",
+      emoji: '📸',
       component: () => (
         <Container>
           <PhotoGallery />
-        </Container>
-      )
-    },
-    Writing: {
-      emoji: "📝",
-      component: () => (
-        <Container>
-          <WritingGallery />
         </Container>
       )
     }
@@ -75,7 +75,9 @@ export default class HomePage extends React.Component<PropsType, StateType> {
   }
 
   renderTab() {
-    return this.state.selectedTab ? this.tabs[this.state.selectedTab].component() : null
+    return this.state.selectedTab
+      ? this.tabs[this.state.selectedTab].component()
+      : null
   }
 
   render(): React.Element<*> {
