@@ -3,9 +3,20 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Text from './Text'
+import Title from './Title'
 import { colors, shadows } from '../styles'
 
 const SELECTOR_HEIGHT = 40
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > :nth-child(2) {
+    margin-top: 25px;
+  }
+`
 
 const SelectorDiv = styled.div`
   display: flex;
@@ -22,25 +33,24 @@ const SelectorDiv = styled.div`
     &:not(:last-child) {
       position: relative;
 
-      ${'' /* Small (half-height) border between tabs */}
-      &:after {
-        content : "";
+      ${'' /* Small (half-height) border between tabs */} &:after {
+        content: '';
         position: absolute;
         right: 0;
         bottom: 0;
         width: 1px;
-        height: 50%;  /* or 100px */
+        height: 50%; /* or 100px */
         transform: translateY(-50%);
-        border-right:1px solid ${colors.lightGrey};
+        border-right: 1px solid ${colors.lightGrey};
       }
     }
-
   }
 `
 
 const TabItemDiv = styled.div`
   background-color: ${colors.white};
-  border-bottom: ${props => props.selected ? `2px solid ${colors.blue}` : `2px solid transparent`};
+  border-bottom: ${props =>
+    props.selected ? `2px solid ${colors.blue}` : `2px solid transparent`};
   cursor: pointer;
   text-align: center;
   display: flex;
@@ -54,27 +64,37 @@ const TabItemDiv = styled.div`
 type PropsType = {
   tabs: { [string]: TabInfoType },
   selectedTab: string,
-  onTabChange: string => void
+  onTabChange: string => void,
+  showLabel: boolean
 }
 
-export default function TabSelector(props: PropsType): React.Element<*> {
+function TabSelector(props: PropsType): React.Element<*> {
   return (
-    <SelectorDiv>
-      {Object.keys(props.tabs).map(tabKey => (
-        <TabItemDiv
-          key={tabKey}
-          onClick={() => props.onTabChange(tabKey)}
-          selected={props.selectedTab === tabKey}
-        >
-          <Text
-            title={tabKey}
-            color={props.selectedTab === tabKey ? colors.white : colors.black}
-            bold
+    <Wrapper>
+      <SelectorDiv>
+        {Object.keys(props.tabs).map(tabKey => (
+          <TabItemDiv
+            key={tabKey}
+            onClick={() => props.onTabChange(tabKey)}
+            selected={props.selectedTab === tabKey}
           >
-            {props.tabs[tabKey].emoji}
-          </Text>
-        </TabItemDiv>
-      ))}
-    </SelectorDiv>
+            <Text
+              title={tabKey}
+              color={props.selectedTab === tabKey ? colors.white : colors.black}
+              bold
+            >
+              {props.tabs[tabKey].emoji}
+            </Text>
+          </TabItemDiv>
+        ))}
+      </SelectorDiv>
+      <Title>{props.selectedTab}</Title>
+    </Wrapper>
   )
 }
+
+TabSelector.defaultProps = {
+  showLabel: false
+}
+
+export default TabSelector

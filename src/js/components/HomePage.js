@@ -94,6 +94,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
 
           <Container>
             <TabSelector
+              showLabel
               tabs={this.tabs}
               selectedTab={this.state.selectedTab}
               onTabChange={this.handleTabChange}
