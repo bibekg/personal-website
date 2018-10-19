@@ -8,7 +8,7 @@ import { ifMobile } from '../styles/helpers'
 
 const BioDiv = styled.div`
   padding: 10px 0;
-  margin: 25px 0;
+  margin-bottom: 25px;
   & > *:not(:last-child) {
     margin-bottom: 10px;
   }
