@@ -10,6 +10,7 @@
     "deploy": "yarn build && yarn deploy-surge",
     "deploy-surge": "surge --project build --domain bibekg.com",
     "clean": "rimraf dist && rimraf build",
+    "test": "echo \"No tests\"",
     "image-optim": "imageOptim --directory src/js/images"
   },
   "dependencies": {
