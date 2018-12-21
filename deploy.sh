@@ -1,5 +1,7 @@
 #!/bin/bash
 
+yarn build
+
 pip install awscli --upgrade --user
 
 # Sync the build folder with our S3 bucket
