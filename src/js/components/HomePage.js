@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { IndexRedirect, Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
@@ -118,6 +118,9 @@ export default class HomePage extends React.Component<PropsType, StateType> {
                   component={this.tabs[t].component}
                 />
               ))}
+              <Route
+                render={() => <Redirect to={`/${Object.keys(this.tabs)[0]}`} />}
+              />
             </Switch>
           </RenderedTabContainer>
         </InnerContainer>

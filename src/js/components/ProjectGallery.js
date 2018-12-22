@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Redirect, Route, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import Gallery from './Gallery'
 import ProjectSpotlight from './ProjectSpotlight'
@@ -47,6 +47,9 @@ export class ProjectGallery extends React.Component<PropsType, StateType> {
                 render={this.renderProject(project)}
               />
             ))}
+            <Route
+              component={() => <Redirect to={`/work/${projects[0].slug}`} />}
+            />
           </Switch>
         </SelectedProjectDiv>
       </ProjectGalleryDiv>
