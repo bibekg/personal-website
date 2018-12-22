@@ -45,6 +45,41 @@ export default {
     'Much of my work involves working with web development technologies, with a particular emphasis on front-end frameworks such as React and Redux. I have also worked extensively with Node/MongoDB in the back-end while working on BruinMeet.',
   projects: [
     {
+      name: 'The Bruin Bucket List',
+      slug: 'the-bruin-bucket-list',
+      icon: {
+        src: require('./images/the-bruin-bucket-list/icon.png'),
+        width: 1,
+        height: 1,
+      },
+      tagline: 'An interactive bucket list website for UCLA students.',
+      description: [
+        'After a finals week that ended earlier than usual, I had a few days to kill before heading home. One of my good friends, George, had made an excellent "UCLA bucket list" post on Medium a while back so I checked it out.',
+        'Then I realized that a bucket list would be much more usable and fun if you could check things off as you go and track your progress. So I made this site to let you do exactly that!',
+        {
+          screenshots: [
+            {
+              src: require('./images/the-bruin-bucket-list/screenshot.png'),
+              width: 2250,
+              height: 1152,
+            },
+          ],
+        },
+      ],
+      links: [
+        {
+          name: 'Github',
+          href: 'https://github.com/bibekg/thebruinbucketlist',
+          icon: githubIcon,
+        },
+        {
+          name: 'Website',
+          href: 'http://thebruinbucketlist.surge.sh',
+          icon: homeIcon,
+        },
+      ],
+    },
+    {
       name: 'React Schedule Selector',
       slug: 'react-sechedule-selector',
       icon: {
