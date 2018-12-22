@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./src/200.html",
+    "dev": "parcel ./src/index.html",
     "build": "parcel build src/index.html -d build/ --public-url ./",
     "deploy": "yarn build && yarn deploy-surge",
     "deploy-surge": "surge --project build --domain bibekg.com",

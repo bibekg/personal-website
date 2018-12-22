@@ -77,7 +77,6 @@ export default function BusinessCard() {
         <Text bold color={colors.blue}>
           {name}
         </Text>
-        <Text light>{info.tagline}</Text>
         <SocialLinks />
       </TextInfo>
     </Card>
