@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import BusinessCard from './BusinessCard'
 import Bio from './Bio'
@@ -9,9 +10,11 @@ import ProjectGallery from './ProjectGallery'
 import PhotoGallery from './PhotoGallery'
 import VideoGallery from './VideoGallery'
 import WritingGallery from './WritingGallery'
+import Text from './Text'
 import Title from './Title'
 import Container from './Container'
 import info from '../info'
+import { colors } from '../styles'
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -30,44 +33,54 @@ const RenderedTabContainer = styled.div`
   margin: 30px 0;
 `
 
+const TabContentContainer = props => (
+  <Container>
+    <Text center bold color={colors.blue} large capitalized>
+      {props.label}
+    </Text>
+    <br />
+    {props.children}
+  </Container>
+)
+
 export default class HomePage extends React.Component<PropsType, StateType> {
   state = {
-    selectedTab: 'Work'
+    selectedTab: 'work',
   }
 
   tabs = {
-    Work: {
+    work: {
       emoji: '💼',
       component: () => (
-        <Container>
+        <TabContentContainer label="Work">
           <ProjectGallery />
-        </Container>
-      )
+        </TabContentContainer>
+      ),
     },
-    Writing: {
+    writing: {
       emoji: '📝',
       component: () => (
-        <Container>
+        <TabContentContainer label="Writing">
           <WritingGallery />
-        </Container>
-      )
+        </TabContentContainer>
+      ),
     },
-    Videos: {
+    videos: {
       emoji: '🎬',
       component: () => (
-        <Container>
+        <TabContentContainer label="Videos">
           <VideoGallery />
-        </Container>
-      )
+        </TabContentContainer>
+      ),
     },
-    Photography: {
+    photography: {
       emoji: '📸',
       component: () => (
-        <Container>
+        <TabContentContainer label="Photography">
           <PhotoGallery />
-        </Container>
-      )
-    }
+        </TabContentContainer>
+      ),
+    },
   }
 
   handleTabChange = (newTab: string) => {
@@ -93,15 +106,20 @@ export default class HomePage extends React.Component<PropsType, StateType> {
           </Container>
 
           <Container>
-            <TabSelector
-              showLabel
-              tabs={this.tabs}
-              selectedTab={this.state.selectedTab}
-              onTabChange={this.handleTabChange}
-            />
+            <TabSelector showLabel tabs={this.tabs} />
           </Container>
 
-          <RenderedTabContainer>{this.renderTab()}</RenderedTabContainer>
+          <RenderedTabContainer>
+            <Switch>
+              {Object.keys(this.tabs).map(t => (
+                <Route
+                  key={t}
+                  path={`/${t}`}
+                  component={this.tabs[t].component}
+                />
+              ))}
+            </Switch>
+          </RenderedTabContainer>
         </InnerContainer>
       </HomePageWrapper>
     )

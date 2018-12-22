@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import Text from './Text'
 import Title from './Title'
@@ -47,10 +48,13 @@ const SelectorDiv = styled.div`
   }
 `
 
-const TabItemDiv = styled.div`
+const TabItem = styled(NavLink)`
+  text-decoration: none;
   background-color: ${colors.white};
-  border-bottom: ${props =>
-    props.selected ? `2px solid ${colors.blue}` : `2px solid transparent`};
+  border-bottom: 2px solid transparent;
+  &.active {
+    border-bottom-color: ${colors.blue};
+  }
   cursor: pointer;
   text-align: center;
   display: flex;
@@ -61,11 +65,13 @@ const TabItemDiv = styled.div`
   }
 `
 
+const TabLabel = styled(Text)`
+  text-transform: capitalize;
+`
+
 type PropsType = {
   tabs: { [string]: TabInfoType },
-  selectedTab: string,
-  onTabChange: string => void,
-  showLabel: boolean
+  showLabel: boolean,
 }
 
 function TabSelector(props: PropsType): React.Element<*> {
@@ -73,28 +79,19 @@ function TabSelector(props: PropsType): React.Element<*> {
     <Wrapper>
       <SelectorDiv>
         {Object.keys(props.tabs).map(tabKey => (
-          <TabItemDiv
-            key={tabKey}
-            onClick={() => props.onTabChange(tabKey)}
-            selected={props.selectedTab === tabKey}
-          >
-            <Text
-              title={tabKey}
-              color={props.selectedTab === tabKey ? colors.white : colors.black}
-              bold
-            >
+          <TabItem to={`/${tabKey}`} key={tabKey}>
+            <Text title={tabKey} bold>
               {props.tabs[tabKey].emoji}
             </Text>
-          </TabItemDiv>
+          </TabItem>
         ))}
       </SelectorDiv>
-      <Title>{props.selectedTab}</Title>
     </Wrapper>
   )
 }
 
 TabSelector.defaultProps = {
-  showLabel: false
+  showLabel: false,
 }
 
 export default TabSelector

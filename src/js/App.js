@@ -7,7 +7,8 @@ import { colors, fonts } from './styles'
 import HomePage from './components/HomePage'
 import ResumeRedirect from './components/ResumeRedirect'
 
-injectGlobal([`
+injectGlobal([
+  `
     @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,700');
     
     html, body {
@@ -33,26 +34,26 @@ injectGlobal([`
         background-color: ${colors.almostWhite};
         border-radius: 3px;
     }
-`])
+`,
+])
 
-const AppWrapper = styled.div`
-`
+const AppWrapper = styled.div``
 
 type PropsType = {}
 
 class App extends React.Component<PropsType> {
-    render() {
-        return (
-            <AppWrapper>
-                <BrowserRouter>
-                    <Switch>
-                        <Route exact path='/' component={HomePage} />
-                        <Route path='/resume' component={ResumeRedirect} />
-                    </Switch>
-                </BrowserRouter>
-            </AppWrapper>
-        )
-    }
+  render() {
+    return (
+      <AppWrapper>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/resume" component={ResumeRedirect} />
+            <Route path="/" component={HomePage} />
+          </Switch>
+        </BrowserRouter>
+      </AppWrapper>
+    )
+  }
 }
 
 export default App

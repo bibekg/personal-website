@@ -4,8 +4,23 @@ import styled from 'styled-components'
 import { colors, fonts } from '../styles'
 
 const DEFAULT_COLOR = colors.grey
+const DEFAULT_SIZE = 18
+const MEDIUM_SIZE = 20
+const LARGE_SIZE = 28
 
-const getSize = props => (props.size ? props.size : 18)
+const getSize = props => {
+  if (props.size) {
+    return props.size
+  } else {
+    if (props.medium) {
+      return MEDIUM_SIZE
+    } else if (props.large) {
+      return LARGE_SIZE
+    }
+  }
+  return DEFAULT_SIZE
+}
+
 const getColor = props =>
   props.color ? props.color : props.light ? colors.grey : DEFAULT_COLOR
 
@@ -23,4 +38,5 @@ export default styled.div`
         ? `${fonts.serif}, serif`
         : `${fonts['sans-serif']}, sans-serif`};
     font-style: ${props => (props.italic ? 'italic' : 'normal')};
+    ${props => (props.capitalized ? 'text-transform: capitalize' : '')};
 `
