@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import YouTube from 'react-youtube'
 
@@ -43,36 +44,26 @@ const VideoPlayerDiv = styled.div`
 
 type PropsType = {}
 type StateType = {
-  selectedVideo: ?Object
+  selectedVideo: ?Object,
 }
 
-export default class VideoGallery extends React.Component<
-  PropsType,
-  StateType
-> {
+export class VideoGallery extends React.Component<PropsType, StateType> {
   state = {
-    selectedVideo: videos[0]
+    selectedVideo: videos[0],
   }
 
-  handleSelectChange = (itemName: string) => {
-    this.setState({
-      selectedVideo: videos.find(v => (v.name === itemName))
-    })
-  }
-
-  renderSelectedVideo() {
-    const { selectedVideo } = this.state
-    if (selectedVideo) {
-      return (
-        <VideoPlayerDiv>
-          <div>
-            <Text size={24} center color={colors.blue} bold>{selectedVideo.name}</Text>
-            { selectedVideo.tagline && <Text center>{selectedVideo.tagline}</Text>}
-          </div>
-          <YouTube videoId={selectedVideo.videoId} />
-        </VideoPlayerDiv>
-      )
-    }
+  renderVideo(selectedVideo) {
+    return () => (
+      <VideoPlayerDiv>
+        <div>
+          <Text size={24} center color={colors.blue} bold>
+            {selectedVideo.name}
+          </Text>
+          {selectedVideo.tagline && <Text center>{selectedVideo.tagline}</Text>}
+        </div>
+        <YouTube videoId={selectedVideo.videoId} />
+      </VideoPlayerDiv>
+    )
   }
 
   render(): React.Element<*> {
@@ -80,13 +71,22 @@ export default class VideoGallery extends React.Component<
       <VideoGalleryDiv>
         <Gallery
           name="video"
-          contents={videos}
+          contents={videos.map(v => ({ ...v, href: `/videos/${v.slug}` }))}
           selectable
-          selectedItem={this.state.selectedVideo}
-          onSelectChange={this.handleSelectChange}
+          selectedItem={this.props.match.params.subItem}
         />
-        {this.state.selectedVideo != null ? this.renderSelectedVideo() : null}
+        <Switch>
+          {videos.map(video => (
+            <Route
+              key={video.slug}
+              path={`/videos/${video.slug}`}
+              render={this.renderVideo(video)}
+            />
+          ))}
+        </Switch>
       </VideoGalleryDiv>
     )
   }
 }
+
+export default withRouter(VideoGallery)

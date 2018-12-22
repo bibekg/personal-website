@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import Flex from 'styled-flex-component'
@@ -22,7 +23,7 @@ type PropsType = {
   selectable: boolean,
   selected: boolean,
   onClick: string => void,
-  makeLink: boolean
+  makeLink: boolean,
 }
 
 const Overlay = styled.div`
@@ -37,8 +38,8 @@ const Overlay = styled.div`
 
 const GalleryGridItem = styled.div`
   & {
-    width: ${props => props.width ? `${props.width}px` : '100%'};
-    ${props => props.height ? `height: ${props.height}px` : ''};
+    width: ${props => (props.width ? `${props.width}px` : '100%')};
+    ${props => (props.height ? `height: ${props.height}px` : '')};
   }
   flex-grow: 0;
   flex-shrink: 0;
@@ -52,8 +53,11 @@ const GalleryItemDiv = styled.div`
   display: block;
   position: relative;
   transition: 0.3s ease outline, 0.3s ease transform;
-  box-shadow: ${props => props.selected ? shadows.blue : shadows.light};
-  transform: scale(${props => props.selected ? 1 : 0.9});
+  box-shadow: ${shadows.light};
+  &.active {
+    box-shadow: ${shadows.blue};
+  }
+  transform: scale(${props => (props.selected ? 1 : 0.9)});
   flex-shrink: 0;
   background-image: url(${props => props.background});
   background-position: center;
@@ -63,7 +67,7 @@ const GalleryItemDiv = styled.div`
   width: 100%;
   height: 100%;
   margin: ${props => getPadding(props.size)}px;
-  ${props => props.selectable ? 'cursor: pointer;' : ''}
+  ${props => (props.selectable ? 'cursor: pointer;' : '')}
 
   img {
     width: 100%;
@@ -91,11 +95,12 @@ const TitleText = Text.extend`
 `
 
 const GalleryItem = (props: PropsType) => {
-  // Use a <a/> tag if there is a link associated with this gallery item
-  const ItemWrapper = props.makeLink && props.href
-    ? GalleryItemDiv.withComponent('a').extend.attrs({ href: props.href })``
+  const ItemDiv = props.href
+    ? innerProps => {
+        const C = GalleryItemDiv.withComponent(NavLink)
+        return <C to={props.href} {...innerProps} />
+      }
     : GalleryItemDiv
-
   return (
     <GalleryGridItem
       onClick={() => props.onClick(props.name)}
@@ -103,7 +108,7 @@ const GalleryItem = (props: PropsType) => {
       height={props.height}
       noExplicitWidth={props.noExplicitWidth}
     >
-      <ItemWrapper
+      <ItemDiv
         selectable={props.selectable}
         selected={props.selected}
         background={props.image}
@@ -118,7 +123,7 @@ const GalleryItem = (props: PropsType) => {
             </Text>
           )}
         </Overlay>
-      </ItemWrapper>
+      </ItemDiv>
     </GalleryGridItem>
   )
 }
@@ -127,7 +132,7 @@ GalleryItem.defaultProps = {
   selectable: false,
   selected: false,
   noExplicitWidth: false,
-  onClick: () => {}
+  onClick: () => {},
 }
 
 export default GalleryItem

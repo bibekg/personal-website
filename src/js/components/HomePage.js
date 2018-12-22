@@ -114,7 +114,7 @@ export default class HomePage extends React.Component<PropsType, StateType> {
               {Object.keys(this.tabs).map(t => (
                 <Route
                   key={t}
-                  path={`/${t}`}
+                  path={`/${t}/:subItem?`}
                   component={this.tabs[t].component}
                 />
               ))}

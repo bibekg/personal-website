@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import Gallery from './Gallery'
 import ProjectSpotlight from './ProjectSpotlight'
@@ -18,27 +19,13 @@ const ProjectGalleryDiv = styled.div`
   align-items: center;
 `
 
-export default class ProjectGallery extends React.Component<
-  PropsType,
-  StateType
-> {
+export class ProjectGallery extends React.Component<PropsType, StateType> {
   state = {
-    selectedProject: projects[0]
+    selectedProject: projects[0],
   }
 
-  handleSelectChange = (itemName: string) => {
-    this.setState({
-      selectedProject: projects.find(v => (v.name === itemName))
-    })
-  }
-
-  renderSelectedProject() {
-    const { selectedProject } = this.state
-    if (selectedProject) {
-      return <ProjectSpotlight
-        {...selectedProject}
-      />
-    }
+  renderProject(project) {
+    return props => <ProjectSpotlight {...project} {...props} />
   }
 
   render(): React.Element<*> {
@@ -46,16 +33,25 @@ export default class ProjectGallery extends React.Component<
       <ProjectGalleryDiv>
         <Gallery
           name="project"
-          contents={projects}
+          contents={projects.map(p => ({ ...p, href: `/work/${p.slug}` }))}
           selectable
-          selectedItem={this.state.selectedProject}
-          onSelectChange={this.handleSelectChange}
+          selectedItem={this.props.match.params.subItem}
         />
 
         <SelectedProjectDiv>
-          {this.state.selectedProject != null ? this.renderSelectedProject() : null}
+          <Switch>
+            {projects.map(project => (
+              <Route
+                key={project.slug}
+                path={`/work/${project.slug}`}
+                render={this.renderProject(project)}
+              />
+            ))}
+          </Switch>
         </SelectedProjectDiv>
       </ProjectGalleryDiv>
     )
   }
 }
+
+export default withRouter(ProjectGallery)

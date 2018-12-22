@@ -46,6 +46,7 @@ export default {
   projects: [
     {
       name: 'React Schedule Selector',
+      slug: 'react-sechedule-selector',
       icon: {
         src: require('./images/react-schedule-selector/icon.png'),
         width: 1,
@@ -76,7 +77,8 @@ export default {
       CustomRender: ReactScheduleSelectorDemo,
     },
     {
-      name: 'Bruin Meet',
+      name: 'BruinMeet',
+      slug: 'bruinmeet',
       icon: {
         src: require('./images/bruinmeet/icon.png'),
         width: 1,
@@ -103,6 +105,7 @@ export default {
     },
     {
       name: 'Unjournal',
+      slug: 'unjournal',
       icon: {
         src: require('./images/unjournal/icon.png'),
         width: 1,
@@ -138,6 +141,7 @@ export default {
     },
     {
       name: 'The Coding School',
+      slug: 'the-coding-school',
       icon: { src: require('./images/tcs/icon.png'), width: 1, height: 1 },
       href: 'https://the-cs.org',
       tagline: 'Non-profit organization providing coding education.',
@@ -165,6 +169,7 @@ export default {
     },
     {
       name: 'Visualizing LA',
+      slug: 'visualizing-la',
       icon: {
         src: require('./images/visualizingla/icon.png'),
         width: 1,
@@ -200,6 +205,7 @@ export default {
     },
     {
       name: 'Hyliter',
+      slug: 'hyliter',
       icon: { src: require('./images/hyliter/icon.png'), width: 1, height: 1 },
       href:
         'https://chrome.google.com/webstore/detail/hyliter/nhiannhalledfohikpmbclkalcknilcg',
@@ -234,6 +240,7 @@ export default {
   videos: [
     {
       name: 'Nepal Village Tour',
+      slug: 'nepal-village-tour',
       tagline:
         'The rolling hills of Nepal will always have a special place in my heart.',
       icon: {
@@ -245,6 +252,7 @@ export default {
     },
     {
       name: 'Ram Sailee - Bipul Chettri (cover)',
+      slug: 'ram-sailee-cover',
       icon: {
         src: require('./images/video-stills/ram-sailee-cover.png'),
         height: 1,
@@ -254,6 +262,7 @@ export default {
     },
     {
       name: 'Hiking the Mist Trail',
+      slug: 'hiking-mist-trail',
       tagline: 'Arguably the best trail in Yosemite.',
       icon: {
         src: require('./images/video-stills/mist-trail.png'),
@@ -264,6 +273,7 @@ export default {
     },
     {
       name: 'Hiking the Matt Davis Trail',
+      slug: 'hiking-matt-davis-trail',
       tagline: 'A peaceful hike ending on the beautiful California shoreline.',
       icon: {
         src: require('./images/video-stills/matt-davis-trail.png'),
