@@ -101,13 +101,12 @@ export default class extends React.Component<{}, StateType> {
             most thoughtful.
           </Text>
           <Text color={colors.white} center>
-            This Christmas, I'm taking my own advice and made you something that
-            cost $0 but comes from the bottom of my heart with all the love I
-            have for you.
+            This Christmas, I took my own advice and made you something that
+            cost $0 but comes from the bottom of my heart.
           </Text>
           <br />
           <Text color={colors.white} center>
-            Press play and enjoy.
+            Press play and enjoy. 😊
           </Text>
 
           <br />
@@ -123,6 +122,10 @@ export default class extends React.Component<{}, StateType> {
           />
 
           <LyricsWrapper show={this.state.songDone}>
+            <Text color={colors.green} center bold medium>
+              Brother for Life
+            </Text>
+            <br />
             {lyrics.map((line, index) =>
               line === '' ? (
                 <br />
