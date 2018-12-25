@@ -74,8 +74,7 @@ const LyricsWrapper = styled.div`
   margin-top: 30px;
   padding: 20px;
   border-radius: 10px;
-  transition: opacity 0.6s ease;
-  opacity: ${props => (props.show ? '1' : '0')};
+  display: ${props => (props.show ? 'block' : 'none')};
 `
 
 type StateType = {
@@ -92,7 +91,7 @@ export default class extends React.Component<{}, StateType> {
       <Wrapper>
         <InnerContainer>
           <Text color={colors.green} center bold large>
-            🎄🎄🎄 Merry Christmas, Sabin! 🎄🎄🎄
+            Merry Christmas, Sabin!
           </Text>
           <br />
           <Text color={colors.white} center>
