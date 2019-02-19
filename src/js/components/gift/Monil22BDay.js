@@ -153,7 +153,15 @@ export default class extends React.Component<{}, StateType> {
       return
     }
 
-    this.ctx = new AudioContext()
+    if ('AudioContext' in window) {
+      this.ctx = new AudioContext()
+    } else if ('webkitAudioContext' in window) {
+      this.ctx = new webkitAudioContext()
+    } else {
+      console.log("Can't show visualizations in this browser :(")
+      return
+    }
+
     const audio = document.getElementById('monils-song')
     if (!audio) {
       console.error('Did not load audio???')
@@ -178,7 +186,6 @@ export default class extends React.Component<{}, StateType> {
       // update data in frequencyData
       analyser.getByteFrequencyData(frequencyData)
       // render frame based on values in frequencyData
-      // const nextPixelGrid = [...this.state.pixelGrid]
       for (let i = 0; i < frequencyData.length; i += 1) {
         const x = Math.floor(i / 32)
         const y = i % 32

@@ -52,7 +52,7 @@ class App extends React.Component<PropsType> {
         <BrowserRouter>
           <Switch>
             <Route path="/sabins-xmas-gift" component={SabinChristmasGift} />
-            <Route paht="/gift/monil/22nd-bday" component={Monil22BDay} />
+            <Route path="/gift/monil/22nd-bday" component={Monil22BDay} />
             <Route path="/resume" component={ResumeRedirect} />
             <Route path="/" component={HomePage} />
           </Switch>
