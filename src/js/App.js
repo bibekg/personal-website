@@ -7,6 +7,7 @@ import { colors, fonts } from './styles'
 import HomePage from './components/HomePage'
 import ResumeRedirect from './components/ResumeRedirect'
 import SabinChristmasGift from './components/SabinChristmasGift'
+import Monil22BDay from './components/gift/Monil22BDay'
 
 injectGlobal([
   `
@@ -51,6 +52,7 @@ class App extends React.Component<PropsType> {
         <BrowserRouter>
           <Switch>
             <Route path="/sabins-xmas-gift" component={SabinChristmasGift} />
+            <Route paht="/gift/monil/22nd-bday" component={Monil22BDay} />
             <Route path="/resume" component={ResumeRedirect} />
             <Route path="/" component={HomePage} />
           </Switch>
