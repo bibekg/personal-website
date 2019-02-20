@@ -21,14 +21,14 @@ const contributors = [
 ]
 
 const lyrics = [
-  "He's one of the most caring people that you will ever meet",
+  'One of the most caring people that you will ever meet',
   'Always blasting simp music on endless repeat',
   'He gets sick at least once a quarter, probably cause he forgets to eat',
   "Nevertheless he'll still be there, you'll never find a friend so sweet",
   '',
   'Catch him on Facebook love reacting every post he comes across',
   "Interested in every event, doesn't even matter where it was",
-  'Doin all this on his iPhone 5S, with size 50 font',
+  "Doin' all this on his iPhone 5S, with size 50 font",
   "You know he's super multicultural, he even went to Cuba",
   '',
   `Denim jacket on, he's sending it to Rocco's, cause you know he's "not not down"`,
