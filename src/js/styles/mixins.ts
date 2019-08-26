@@ -1,7 +1,10 @@
-export const placeholderMixin = `
-  font-family: 'Montserrat', sans-serif;
+import { css } from "styled-components";
+import { colors } from "./index";
+
+export const placeholderMixin = css`
+  font-family: "Montserrat", sans-serif;
   ::-webkit-input-placeholder {
-    color: ##AAAAAA;
+    color: ##aaaaaa;
     opacity: 0.5;
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
@@ -66,4 +69,18 @@ export const placeholderMixin = `
     -ms-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
   }
-`
+`;
+
+export const scrollbarMixin = css`
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${colors.almostWhite};
+    border-radius: 3px;
+  }
+`;

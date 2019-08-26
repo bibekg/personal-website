@@ -1,52 +1,52 @@
 // @flow
 
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from "react";
+import styled from "styled-components";
 
-import Text from './Text'
-import bg from '../images/christmas-bg.png'
-import songFile from '../../assets/audio/brother-for-life.mp3'
-import { colors, shadows } from '../styles'
+import Text from "./Text";
+import bg from "../images/christmas-bg.png";
+import songFile from "../../assets/audio/brother-for-life.mp3";
+import { colors, shadows } from "../styles";
 
 const SnowflakeDiv = styled.div`
   color: #fff;
   font-size: 1em;
   font-family: Arial, sans-serif;
   text-shadow: 0 0 5px #000;
-`
+`;
 
 const Snowflakes = props => (
   <div className="snowflakes" aria-hidden="true">
     {(() => {
-      const els = []
+      const els = [];
       for (let i = 0; i < props.count; i += 1) {
         els.push(
           <SnowflakeDiv key={i} className="snowflake">
             ❅
           </SnowflakeDiv>
-        )
+        );
       }
-      return els
+      return els;
     })()}
   </div>
-)
+);
 
 const lyrics = [
-  'We laughed, we cried til our tears ran dry',
-  'We danced, we sang late into the nights',
+  "We laughed, we cried til our tears ran dry",
+  "We danced, we sang late into the nights",
   "Memories made, I'll never forget, so glad you've been by my side",
-  'Through all these times, the lows and the highs, I found my brother for life',
-  '',
-  'You helped me see who I really am, my personal North star',
-  'You were the bridge, from me to my clan, even though they’re so far',
-  'You helped me learn our language and culture, and melodies on guitar',
-  'Oh and you found my champagne-covered cell phone, at that one Lakeside bar',
-  '',
-  'We laughed, we cried til our tears ran dry',
-  'We danced, we sang late into the nights',
+  "Through all these times, the lows and the highs, I found my brother for life",
+  "",
+  "You helped me see who I really am, my personal North star",
+  "You were the bridge, from me to my clan, even though they’re so far",
+  "You helped me learn our language and culture, and melodies on guitar",
+  "Oh and you found my champagne-covered cell phone, at that one Lakeside bar",
+  "",
+  "We laughed, we cried til our tears ran dry",
+  "We danced, we sang late into the nights",
   "Memories made, I'll never forget, so glad you've been by my side",
-  'Through all these times, the lows and the highs, I found my brother for life',
-]
+  "Through all these times, the lows and the highs, I found my brother for life"
+];
 
 const Wrapper = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const Wrapper = styled.div`
   background-position: center;
   background-size: cover;
   min-height: 100vh;
-`
+`;
 
 const InnerContainer = styled.div`
   max-width: 750px;
@@ -66,7 +66,7 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const LyricsWrapper = styled.div`
   background: rgba(255, 255, 255, 0.8);
@@ -74,17 +74,17 @@ const LyricsWrapper = styled.div`
   margin-top: 30px;
   padding: 20px;
   border-radius: 10px;
-  display: ${props => (props.show ? 'block' : 'none')};
-`
+  display: ${props => (props.show ? "block" : "none")};
+`;
 
 type StateType = {
-  songDone: boolean,
-}
+  songDone: boolean;
+};
 
 export default class extends React.Component<{}, StateType> {
   state = {
-    songDone: false,
-  }
+    songDone: false
+  };
 
   render() {
     return (
@@ -113,10 +113,10 @@ export default class extends React.Component<{}, StateType> {
             controls
             src={songFile}
             onEnded={() => {
-              console.log('ended fired')
+              console.log("ended fired");
               this.setState({
-                songDone: true,
-              })
+                songDone: true
+              });
             }}
           />
 
@@ -126,7 +126,7 @@ export default class extends React.Component<{}, StateType> {
             </Text>
             <br />
             {lyrics.map((line, index) =>
-              line === '' ? (
+              line === "" ? (
                 <br />
               ) : (
                 <Text key={index} center color={colors.black}>
@@ -138,6 +138,6 @@ export default class extends React.Component<{}, StateType> {
         </InnerContainer>
         <Snowflakes count={11} />
       </Wrapper>
-    )
+    );
   }
 }
