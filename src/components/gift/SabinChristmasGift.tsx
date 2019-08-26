@@ -3,10 +3,10 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Text from "./Text";
+import Text from "../Text";
 import bg from "../images/christmas-bg.png";
 import songFile from "../../assets/audio/brother-for-life.mp3";
-import { colors, shadows } from "../styles";
+import { colors, shadows } from "../../styles";
 
 const SnowflakeDiv = styled.div`
   color: #fff;
@@ -95,13 +95,12 @@ export default class extends React.Component<{}, StateType> {
           </Text>
           <br />
           <Text color={colors.white} center>
-            I've always told you how I think the best gifts aren't necessarily
-            the ones that cost the most money but rather the ones that are the
-            most thoughtful.
+            I've always told you how I think the best gifts aren't necessarily the ones that cost
+            the most money but rather the ones that are the most thoughtful.
           </Text>
           <Text color={colors.white} center>
-            This Christmas, I took my own advice and made you something that
-            cost $0 but comes from the bottom of my heart.
+            This Christmas, I took my own advice and made you something that cost $0 but comes from
+            the bottom of my heart.
           </Text>
           <br />
           <Text color={colors.white} center>

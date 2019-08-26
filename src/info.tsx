@@ -2,16 +2,16 @@ import * as React from "react";
 import styled from "styled-components";
 
 import LinkedText from "./components/LinkedText";
-// @TODO -- Clean up icons interface so I can do just one import  here
-import cleverIcon from "./images/clever.png";
-import uberIcon from "./images/uber.png";
-import stanzaIcon from "./images/stanza.png";
-import bmIcon from "./images/bruinmeet/icon.png";
-import unjournalIcon from "./images/unjournal/icon.png";
-import scheduleSelectorIcon from "./images/react-schedule-selector/icon.png";
-import githubIcon from "./images/icons/github.svg";
-import linkedInIcon from "./images/icons/linkedin.svg";
-import mediumIcon from "./images/icons/medium.svg";
+
+import cleverIcon from "./assets/images/clever.png";
+import uberIcon from "./assets/images/uber.png";
+import stanzaIcon from "./assets/images/stanza.png";
+import bmIcon from "./assets/images/bruinmeet/icon.png";
+import unjournalIcon from "./assets/images/unjournal/icon.png";
+import scheduleSelectorIcon from "./assets/images/react-schedule-selector/icon.png";
+import githubIcon from "./assets/images/icons/github.svg";
+import linkedInIcon from "./assets/images/icons/linkedin.svg";
+import mediumIcon from "./assets/images/icons/medium.svg";
 
 interface ItemMeta {
   defaultTitle?: string;

@@ -1,50 +1,40 @@
 // @flow
 
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from "react";
+import styled from "styled-components";
 
-import Text from '../Text'
-import songFile from '../../../assets/audio/monil-22-bday.mp3'
-import songCover from '../../../assets/monil-song-cover.jpeg'
-import { colors, shadows } from '../../styles'
-import { rgb } from 'polished'
+import songFile from "../../assets/audio/monil-22-bday.mp3";
+import songCover from "../../../assets/monil-song-cover.jpeg";
+import { colors, shadows } from "../../styles";
+import { rgb } from "polished";
 
-const contributors = [
-  'Ryan',
-  'Chris',
-  'Nathan',
-  'Jackson',
-  'Deanna',
-  'Nazaret',
-  'Akhil',
-  'Simon',
-]
+const contributors = ["Ryan", "Chris", "Nathan", "Jackson", "Deanna", "Nazaret", "Akhil", "Simon"];
 
 const lyrics = [
-  'One of the most caring people that you will ever meet',
-  'Always blasting simp music on endless repeat',
-  'He gets sick at least once a quarter, probably cause he forgets to eat',
+  "One of the most caring people that you will ever meet",
+  "Always blasting simp music on endless repeat",
+  "He gets sick at least once a quarter, probably cause he forgets to eat",
   "Nevertheless he'll still be there, you'll never find a friend so sweet",
-  '',
-  'Catch him on Facebook love reacting every post he comes across',
+  "",
+  "Catch him on Facebook love reacting every post he comes across",
   "Interested in every event, doesn't even matter where it was",
   "Doin' all this on his iPhone 5S, with size 50 font",
   "You know he's super multicultural, he even went to Cuba",
-  '',
+  "",
   `Denim jacket on, he's sending it to Rocco's, cause you know he's "not not down"`,
   "but let's be real, he peaked at Club Jamba, last man standing, yeah he earned that crown",
   "Dedicated to the cause that's for sure, his enthusiasm's world-renowned",
   "Man's a lightweight so whenever he goes out, you know he's gonna come back browned",
-  '',
+  "",
   "All jokes aside, he is so selfless, he'll make you feel like a king or queen",
   "He's there for you without hesitation, he'll hype you up better than caffeine",
   "Or catch him for a late night deep talk, he'll let you know he's on your team",
-  "Talk to him about whatever, he'll support you and all your dreams",
-]
+  "Talk to him about whatever, he'll support you and all your dreams"
+];
 
 const Canvas = styled.canvas`
   border: 1px solid black;
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,7 +45,7 @@ const Wrapper = styled.div`
   background-position: center;
   background-size: cover;
   min-height: 100vh;
-`
+`;
 
 const InnerContainer = styled.div`
   max-width: 750px;
@@ -63,7 +53,7 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const CoverWrapper = styled.div`
   background: url(${songCover});
@@ -76,7 +66,7 @@ const CoverWrapper = styled.div`
   border-radius: 10px;
   margin-top: 30px;
   box-shadow: ${shadows.default};
-`
+`;
 
 const LyricsWrapper = styled.div`
   background: rgba(0, 0, 0, 0.7);
@@ -84,10 +74,10 @@ const LyricsWrapper = styled.div`
   height: 100%;
   padding: 20px;
   overflow-y: auto;
-  opacity: ${props => (props.show ? '1' : '0')};
+  opacity: ${props => (props.show ? "1" : "0")};
   transition: 0.5s ease opacity;
   }
-`
+`;
 
 const PixelGrid = styled.div`
   position: fixed;
@@ -98,117 +88,114 @@ const PixelGrid = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-`
+`;
 
 const PixelGridRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-`
+`;
 
 const PixelGridPixel = styled.div.attrs({
   style: ({ color }) => ({
-    background: color,
-  }),
+    background: color
+  })
 })`
   flex-grow: 1;
-`
+`;
 
 type StateType = {
-  songDone: boolean,
-}
+  songDone: boolean;
+};
 
 export default class extends React.Component<{}, StateType> {
   constructor(props) {
-    super(props)
-    this.ctx = null
-    this.canvas = null
+    super(props);
+    this.ctx = null;
+    this.canvas = null;
 
     this.state = {
       showLyrics: false,
-      pixelGrid: [],
-    }
+      pixelGrid: []
+    };
 
     for (let i = 0; i < 32; i += 1) {
-      this.state.pixelGrid[i] = []
+      this.state.pixelGrid[i] = [];
       for (let j = 0; j < 32; j += 1) {
-        this.state.pixelGrid[i][j] = { r: 0, g: 0, b: 0 }
+        this.state.pixelGrid[i][j] = { r: 0, g: 0, b: 0 };
       }
     }
 
-    this.handlePause = this.handlePause.bind(this)
-    this.setUpVisualization = this.setUpVisualization.bind(this)
+    this.handlePause = this.handlePause.bind(this);
+    this.setUpVisualization = this.setUpVisualization.bind(this);
   }
 
   handlePause() {
-    this.setState({ showLyrics: false })
+    this.setState({ showLyrics: false });
   }
 
   setUpVisualization() {
     // Visualization already set up
-    this.setState({ showLyrics: true })
+    this.setState({ showLyrics: true });
 
     if (this.ctx) {
-      return
+      return;
     }
 
-    if ('AudioContext' in window) {
-      this.ctx = new AudioContext()
-    } else if ('webkitAudioContext' in window) {
-      this.ctx = new webkitAudioContext()
+    if ("AudioContext" in window) {
+      this.ctx = new AudioContext();
+    } else if ("webkitAudioContext" in window) {
+      this.ctx = new webkitAudioContext();
     } else {
-      console.log("Can't show visualizations in this browser :(")
-      return
+      console.log("Can't show visualizations in this browser :(");
+      return;
     }
 
-    const audio = document.getElementById('monils-song')
+    const audio = document.getElementById("monils-song");
     if (!audio) {
-      console.error('Did not load audio???')
-      return
+      console.error("Did not load audio???");
+      return;
     }
 
-    const audioSrc = this.ctx.createMediaElementSource(audio)
-    const analyser = this.ctx.createAnalyser()
+    const audioSrc = this.ctx.createMediaElementSource(audio);
+    const analyser = this.ctx.createAnalyser();
 
     // we have to connect the MediaElementSource with the analyser
-    audioSrc.connect(analyser)
-    audioSrc.connect(this.ctx.destination)
+    audioSrc.connect(analyser);
+    audioSrc.connect(this.ctx.destination);
     // we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
 
     // frequencyBinCount tells you how many values you'll receive from the analyser
-    const frequencyData = new Uint8Array(analyser.frequencyBinCount)
+    const frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
     // we're ready to receive some data!
     // loop
     const renderFrame = () => {
-      requestAnimationFrame(renderFrame)
+      requestAnimationFrame(renderFrame);
       // update data in frequencyData
-      analyser.getByteFrequencyData(frequencyData)
+      analyser.getByteFrequencyData(frequencyData);
       // render frame based on values in frequencyData
       for (let i = 0; i < frequencyData.length; i += 1) {
-        const x = Math.floor(i / 32)
-        const y = i % 32
-        const pixel = document.getElementsByClassName(
-          `pixel-${31 - x}-${31 - y}`
-        )[0]
+        const x = Math.floor(i / 32);
+        const y = i % 32;
+        const pixel = document.getElementsByClassName(`pixel-${31 - x}-${31 - y}`)[0];
 
-        const TIME_DIVISION = 10000
+        const TIME_DIVISION = 10000;
 
-        const timeUnit = Date.now() % TIME_DIVISION
-        const redDivision =
-          Math.abs(timeUnit - TIME_DIVISION / 2) / (TIME_DIVISION / 2)
-        const greenDivision = redDivision
-        const blueDivision = 1 - redDivision
+        const timeUnit = Date.now() % TIME_DIVISION;
+        const redDivision = Math.abs(timeUnit - TIME_DIVISION / 2) / (TIME_DIVISION / 2);
+        const greenDivision = redDivision;
+        const blueDivision = 1 - redDivision;
 
-        const value = frequencyData[i] * 0.8
+        const value = frequencyData[i] * 0.8;
         pixel.style.backgroundColor = `rgb(${value * redDivision}, ${value *
-          greenDivision}, ${value * blueDivision})`
+          greenDivision}, ${value * blueDivision})`;
       }
-    }
+    };
 
-    this.ctx.resume()
-    renderFrame()
+    this.ctx.resume();
+    renderFrame();
   }
 
   render() {
@@ -224,7 +211,7 @@ export default class extends React.Component<{}, StateType> {
                     className={`pixel-${outerIndex}-${innerIndex}`}
                     key={innerIndex}
                     style={{
-                      backgroundColor: rgb(0, 0, 0),
+                      backgroundColor: rgb(0, 0, 0)
                     }}
                   />
                 ))}
@@ -247,7 +234,7 @@ export default class extends React.Component<{}, StateType> {
               </Text>
               <br />
               {lyrics.map((line, index) =>
-                line === '' ? (
+                line === "" ? (
                   <br key={index} />
                 ) : (
                   <Text key={index} center color={colors.white}>
@@ -258,19 +245,19 @@ export default class extends React.Component<{}, StateType> {
             </LyricsWrapper>
           </CoverWrapper>
 
-          <div style={{ zIndex: 1, marginTop: '50px' }}>
+          <div style={{ zIndex: 1, marginTop: "50px" }}>
             <Text center color={colors.lightGrey}>
-              A big thank you to the following people that helped make this
-              happen by contributing ideas for lyrics, presentation, etc.
+              A big thank you to the following people that helped make this happen by contributing
+              ideas for lyrics, presentation, etc.
             </Text>
             <br />
             <Text center color={colors.lightGrey}>
-              {contributors.join(', ')}
+              {contributors.join(", ")}
             </Text>
             ))}
           </div>
         </InnerContainer>
       </Wrapper>
-    )
+    );
   }
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import favicon from "../images/favicon.png";
+import favicon from "../assets/images/favicon.png";
 import { sizes } from "../styles";
 
 const Logo = styled.img.attrs({

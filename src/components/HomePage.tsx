@@ -16,6 +16,8 @@ const HomePageWrapper = styled.div`
   align-items: center;
   background-color: ${colors.offWhite};
   min-height: 100vh;
+  overflow: hidden;
+  position: relative;
 `;
 
 const InnerContainer = styled.div`
@@ -29,6 +31,18 @@ const InnerContainer = styled.div`
   max-width: 650px;
   width: 95%;
   position: relative;
+  margin-bottom: 80px;
+`;
+
+const ProfilePicContainer = styled.div`
+  position: absolute;
+  top: calc(-1 * ${picturePositioningCalc});
+  right: calc(-1 * ${picturePositioningCalc});
+  opacity: 0.5;
+
+  ${mixins.onMobile(css`
+    display: none;
+  `)};
 `;
 
 const Section = styled.section`
@@ -40,7 +54,11 @@ export default class HomePage extends React.Component<any, any> {
     return (
       <HomePageWrapper>
         <Logo />
-        <ProfilePic />
+
+        <ProfilePicContainer>
+          <ProfilePic />
+        </ProfilePicContainer>
+
         <InnerContainer>
           <Section id="heythere">
             <Text as="h1">Hey there! 👋🏽</Text>
