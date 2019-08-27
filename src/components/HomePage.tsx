@@ -88,7 +88,7 @@ export default class HomePage extends React.Component<any, any> {
             <Text as="p">
               When I'm not coding, I love to {items.blog("write")}, {items.readingList("read")},{" "}
               {items.run("run")}, {items.guitar("play guitar")}, and{" "}
-              {items.outside("spend time outside")}.
+              {items.outside("spend time outdoors")}.
             </Text>
           </Section>
 
