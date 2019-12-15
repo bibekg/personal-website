@@ -1,13 +1,14 @@
 // @flow
 
-import * as React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled, { createGlobalStyle } from "styled-components";
-import { colors, fonts } from "./styles";
-import HomePage from "./components/HomePage";
-// import ResumeRedirect from "./components/ResumeRedirect";
-// import SabinChristmasGift from "./components/SabinChristmasGift";
-// import Monil22BDay from "./components/gift/Monil22BDay";
+import * as React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import styled, { createGlobalStyle } from 'styled-components'
+import { colors, fonts } from './styles'
+import HomePage from './components/HomePage'
+import ResumeRedirect from './components/ResumeRedirect'
+import AliceFarewell from './components/gift/AliceFarewell'
+// import SabinChristmasGift from './components/SabinChristmasGift'
+import Monil22BDay from './components/gift/Monil22BDay'
 
 // @ts-ignore
 const GlobalStyle = createGlobalStyle([
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle([
     @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,700');
     
     html, body {
-        font-family: ${fonts["sans-serif"]}, sans-serif;
+        font-family: ${fonts['sans-serif']}, sans-serif;
         margin: 0;
         width: 100%;
         height: 100%;
@@ -31,12 +32,12 @@ const GlobalStyle = createGlobalStyle([
     a {
       text-decoration: none;
     }
-`
-]);
+`,
+])
 
-const AppWrapper = styled.div``;
+const AppWrapper = styled.div``
 
-type PropsType = {};
+type PropsType = {}
 
 class App extends React.Component<PropsType> {
   render() {
@@ -45,15 +46,16 @@ class App extends React.Component<PropsType> {
         <GlobalStyle />
         <BrowserRouter>
           <Switch>
-            {/* <Route path="/sabins-xmas-gift" component={SabinChristmasGift} />
+            {/* <Route path="/sabins-xmas-gift" component={SabinChristmasGift} /> */}
             <Route path="/gift/monil/22nd-bday" component={Monil22BDay} />
-            <Route path="/resume" component={ResumeRedirect} /> */}
+            <Route path="/gift/alice/farewell" component={AliceFarewell} />
+            <Route path="/resume" component={ResumeRedirect} />
             <Route path="/" component={HomePage} />
           </Switch>
         </BrowserRouter>
       </AppWrapper>
-    );
+    )
   }
 }
 
-export default App;
+export default App
