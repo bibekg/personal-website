@@ -2,11 +2,13 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { rgb } from 'polished'
+
+import Text from '../Text'
 
 import songFile from '../../assets/audio/monil-22-bday.mp3'
 import songCover from '../../assets/images/monil-song-cover.jpeg'
 import { colors, shadows } from '../../styles'
-import { rgb } from 'polished'
 
 const contributors = [
   'Ryan',

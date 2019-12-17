@@ -4,48 +4,56 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import Text from '../Text'
-import ReactYouTube from 'react-youtube'
 import songLyrics from './for-alice-lyrics.json'
+import { colors, shadows } from '../../styles'
+import { useVisualizer, vizModels } from '../useVisualizer'
 
-const YOUTUBE_VIDEO_ID = 'iifKNcoOjhY'
-
-// const lyrs = {
-//   21: "It's been about 10 years since we met",
-//   23.5:
-// }
-
-const lyrics = [
-  'One of the most caring people that you will ever meet',
-  'Always blasting simp music on endless repeat',
-  'He gets sick at least once a quarter, probably cause he forgets to eat',
-  "Nevertheless he'll still be there, you'll never find a friend so sweet",
-  '',
-  'Catch him on Facebook love reacting every post he comes across',
-  "Interested in every event, doesn't even matter where it was",
-  "Doin' all this on his iPhone 5S, with size 50 font",
-  "You know he's super multicultural, he even went to Cuba",
-  '',
-  `Denim jacket on, he's sending it to Rocco's, cause you know he's "not not down"`,
-  "but let's be real, he peaked at Club Jamba, last man standing, yeah he earned that crown",
-  "Dedicated to the cause that's for sure, his enthusiasm's world-renowned",
-  "Man's a lightweight so whenever he goes out, you know he's gonna come back browned",
-  '',
-  "All jokes aside, he is so selfless, he'll make you feel like a king or queen",
-  "He's there for you without hesitation, he'll hype you up better than caffeine",
-  "Or catch him for a late night deep talk, he'll let you know he's on your team",
-  "Talk to him about whatever, he'll support you and all your dreams",
-]
+const VIDEO_SRC =
+  'https://bibeks-random-assets.s3-us-west-2.amazonaws.com/personal-website/for-alice.mp4'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-top: 50px;
   padding-bottom: 50px;
   background-position: center;
   background-size: cover;
   background: black;
   min-height: 100vh;
+  position: relative;
+  & > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  & > :not(canvas) {
+    z-index: 1;
+  }
+`
+
+const Video = styled.video`
+  position: relative;
+  width: 600px;
+  max-width: 80%;
+  box-shadow: ${shadows.default};
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
+`
+
+const LyricsContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  z-index: 2;
 `
 
 type LyricListItem = {
@@ -75,12 +83,24 @@ const getCurrentLyric = (
 const AliceFarewell = () => {
   const [currentTime, setTime] = React.useState(0)
   const currentSongLyric = getCurrentLyric(currentTime, songLyrics)
+  const videoElementRef: React.MutableRefObject<HTMLVideoElement> = React.useRef(
+    null
+  )
+  const [visualizationCanvas, initializeVisualizer] = useVisualizer(
+    videoElementRef,
+    vizModels.polar({
+      direction: 'normal',
+      scale: 1,
+      mode: 'dark',
+      color: { r: 247, g: 245, b: 138 },
+    })
+  )
 
   // Set up time-grabbing logic
-  const handleReady = React.useCallback(({ target: player }) => {
+  const handleVideoCanPlay = React.useCallback(() => {
     const updateTime = () => {
-      if (player && player.getCurrentTime) {
-        setTime(player.getCurrentTime())
+      if (videoElementRef.current && videoElementRef.current.currentTime) {
+        setTime(videoElementRef.current.currentTime)
       }
     }
     setInterval(updateTime, 100)
@@ -88,8 +108,18 @@ const AliceFarewell = () => {
 
   return (
     <Wrapper>
-      <ReactYouTube videoId={YOUTUBE_VIDEO_ID} onReady={handleReady} />
-      <Text color="white">{currentSongLyric}</Text>
+      {visualizationCanvas}
+      <Video
+        controls={true}
+        x-webkit-airplay="allow"
+        ref={videoElementRef}
+        onPlay={initializeVisualizer}
+        src={VIDEO_SRC}
+        onCanPlay={handleVideoCanPlay}
+      />
+      <LyricsContainer>
+        <Text color="white">{currentSongLyric}</Text>
+      </LyricsContainer>
     </Wrapper>
   )
 }
