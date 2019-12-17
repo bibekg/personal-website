@@ -110,6 +110,7 @@ const AliceFarewell = () => {
     <Wrapper>
       {visualizationCanvas}
       <Video
+        playsInline
         controls={true}
         x-webkit-airplay="allow"
         ref={videoElementRef}
