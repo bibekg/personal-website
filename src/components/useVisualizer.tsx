@@ -133,7 +133,6 @@ export const initializeVisualizer = (
   visualizationModel: VisualizationModel
 ): 'unsupported' | 'error' | 'loading' | 'success' => {
   // Set up audio context if it hasn't been yet
-  mediaElement.crossOrigin = 'anonymous'
   let audioContext
   if (audioContext == null) {
     if ('AudioContext' in window) {

@@ -111,6 +111,7 @@ const AliceFarewell = () => {
       {visualizationCanvas}
       <Video
         playsInline
+        crossOrigin="anonymous"
         controls={true}
         x-webkit-airplay="allow"
         ref={videoElementRef}
