@@ -5,8 +5,9 @@ import styled from 'styled-components'
 
 import Text from '../Text'
 import songLyrics from './for-alice-lyrics.json'
-import { colors, shadows } from '../../styles'
-import { useVisualizer, vizModels } from '../useVisualizer'
+import { shadows } from '../../styles'
+import { useVisualizer, models as vizModels } from '../audio-viz'
+// import VIDEO_SRC from './for-alice-540p.mp4'
 
 const VIDEO_SRC =
   'https://bibeks-random-assets.s3-us-west-2.amazonaws.com/personal-website/for-alice.mp4'
@@ -38,8 +39,8 @@ const Wrapper = styled.div`
 
 const Video = styled.video`
   position: relative;
-  width: 600px;
-  max-width: 80%;
+  width: 70%;
+  max-width: 1000px;
   box-shadow: ${shadows.default};
   border-radius: 8px;
   &:focus {
@@ -89,10 +90,8 @@ const AliceFarewell = () => {
   const [visualizationCanvas, initializeVisualizer] = useVisualizer(
     videoElementRef,
     vizModels.polar({
-      direction: 'normal',
-      scale: 1,
+      color: { r: 159, g: 166, b: 117 },
       mode: 'dark',
-      color: { r: 247, g: 245, b: 138 },
     })
   )
 
@@ -120,7 +119,7 @@ const AliceFarewell = () => {
         onCanPlay={handleVideoCanPlay}
       />
       <LyricsContainer>
-        <Text color="white">{currentSongLyric}</Text>
+        <Text color="gray">{currentSongLyric}</Text>
       </LyricsContainer>
     </Wrapper>
   )

@@ -48,7 +48,7 @@ class App extends React.Component<PropsType> {
           <Switch>
             {/* <Route path="/sabins-xmas-gift" component={SabinChristmasGift} /> */}
             <Route path="/gift/monil/22nd-bday" component={Monil22BDay} />
-            <Route path="/gift/alice/farewell" component={AliceFarewell} />
+            <Route path="/gift/alice/memories" component={AliceFarewell} />
             <Route path="/resume" component={ResumeRedirect} />
             <Route path="/" component={HomePage} />
           </Switch>
