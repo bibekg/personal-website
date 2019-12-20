@@ -37,24 +37,34 @@ const Wrapper = styled.div`
   }
 `
 
-const Video = styled.video`
+const LyricsContainer = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+`
+
+const VideoContainer = styled.div`
   position: relative;
-  width: 70%;
+  width: 65%;
   max-width: 1000px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${LyricsContainer} {
+    position: absolute;
+    bottom: -60px;
+  }
+`
+
+const Video = styled.video`
+  width: 100%;
   box-shadow: ${shadows.default};
   border-radius: 8px;
   &:focus {
     outline: none;
   }
-`
-
-const LyricsContainer = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100px;
-  z-index: 2;
 `
 
 type LyricListItem = {
@@ -108,19 +118,25 @@ const AliceFarewell = () => {
   return (
     <Wrapper>
       {visualizationCanvas}
-      <Video
-        playsInline
-        crossOrigin="anonymous"
-        controls={true}
-        x-webkit-airplay="allow"
-        ref={videoElementRef}
-        onPlay={initializeVisualizer}
-        src={VIDEO_SRC}
-        onCanPlay={handleVideoCanPlay}
-      />
-      <LyricsContainer>
-        <Text color="gray">{currentSongLyric}</Text>
-      </LyricsContainer>
+      <VideoContainer>
+        <Video
+          playsInline
+          crossOrigin="anonymous"
+          controls={true}
+          x-webkit-airplay="allow"
+          ref={videoElementRef}
+          onPlay={initializeVisualizer}
+          src={VIDEO_SRC}
+          onCanPlay={handleVideoCanPlay}
+        />
+        {currentSongLyric && (
+          <LyricsContainer>
+            <Text style={{ margin: 0 }} color="white">
+              {currentSongLyric}
+            </Text>
+          </LyricsContainer>
+        )}
+      </VideoContainer>
     </Wrapper>
   )
 }
