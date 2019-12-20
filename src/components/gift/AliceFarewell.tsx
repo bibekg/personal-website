@@ -45,8 +45,7 @@ const LyricsContainer = styled.div`
 
 const VideoContainer = styled.div`
   position: relative;
-  width: 65%;
-  max-width: 1000px;
+  height: 50vh;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -59,7 +58,7 @@ const VideoContainer = styled.div`
 `
 
 const Video = styled.video`
-  width: 100%;
+  height: 100%;
   box-shadow: ${shadows.default};
   border-radius: 8px;
   &:focus {
