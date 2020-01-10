@@ -2,11 +2,11 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { useVisualizer, models as vizModels } from 'react-audio-viz'
 
-import Text from '../Text'
+import MediaLyrics from '../MediaLyrics'
 import songLyrics from './for-alice-lyrics.json'
 import { shadows } from '../../styles'
-import { useVisualizer, models as vizModels } from '../audio-viz'
 // import VIDEO_SRC from './for-alice-540p.mp4'
 
 const VIDEO_SRC =
@@ -37,12 +37,6 @@ const Wrapper = styled.div`
   }
 `
 
-const LyricsContainer = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-`
-
 const VideoContainer = styled.div`
   position: relative;
   height: 50vh;
@@ -51,7 +45,7 @@ const VideoContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  ${LyricsContainer} {
+  & > *:last-child {
     position: absolute;
     bottom: -60px;
   }
@@ -66,57 +60,24 @@ const Video = styled.video`
   }
 `
 
-type LyricListItem = {
-  startTime: number
-  endTime: number
-  lyric: string
-}
-
-const getCurrentLyric = (
-  currentTime: number,
-  lyricList: LyricListItem[]
-): string | null => {
-  if (currentTime === 0) {
-    return null
-  }
-
-  // just in case it's not already sorted
-  lyricList.sort((a, b) => (a.startTime < b.startTime ? -1 : 1))
-  const currentIndex = lyricList.findIndex(
-    ({ startTime, endTime }) =>
-      // Find the first lyric that starts after the current time (minus some padding)
-      currentTime > startTime && currentTime < endTime
-  )
-  return currentIndex === -1 ? null : lyricList[currentIndex].lyric
-}
-
 const AliceFarewell = () => {
-  const [currentTime, setTime] = React.useState(0)
-  const currentSongLyric = getCurrentLyric(currentTime, songLyrics)
-  const videoElementRef: React.MutableRefObject<HTMLVideoElement> = React.useRef(
+  const videoElementRef: React.MutableRefObject<HTMLVideoElement | null> = React.useRef(
     null
   )
-  const [visualizationCanvas, initializeVisualizer] = useVisualizer(
-    videoElementRef,
-    vizModels.polar({
-      color: { r: 159, g: 166, b: 117 },
-      mode: 'dark',
-    })
-  )
+  const [ReactAudioViz, initializeVisualizer] = useVisualizer(videoElementRef)
 
-  // Set up time-grabbing logic
-  const handleVideoCanPlay = React.useCallback(() => {
-    const updateTime = () => {
-      if (videoElementRef.current && videoElementRef.current.currentTime) {
-        setTime(videoElementRef.current.currentTime)
-      }
-    }
-    setInterval(updateTime, 100)
-  }, [])
+  const vizModel = React.useMemo(
+    () =>
+      vizModels.polar({
+        color: 'rgb(159, 166, 117)',
+        darkMode: true,
+      }),
+    [vizModels]
+  )
 
   return (
     <Wrapper>
-      {visualizationCanvas}
+      {ReactAudioViz ? <ReactAudioViz model={vizModel} /> : null}
       <VideoContainer>
         <Video
           playsInline
@@ -126,15 +87,13 @@ const AliceFarewell = () => {
           ref={videoElementRef}
           onPlay={initializeVisualizer}
           src={VIDEO_SRC}
-          onCanPlay={handleVideoCanPlay}
         />
-        {currentSongLyric && (
-          <LyricsContainer>
-            <Text style={{ margin: 0 }} color="white">
-              {currentSongLyric}
-            </Text>
-          </LyricsContainer>
-        )}
+        {
+          <MediaLyrics
+            mediaElementRef={videoElementRef}
+            songLyrics={songLyrics}
+          />
+        }
       </VideoContainer>
     </Wrapper>
   )

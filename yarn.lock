@@ -4981,6 +4981,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-audio-viz@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-audio-viz/-/react-audio-viz-0.0.3.tgz#b0623b46b41c9bab55f16ce83cd9a8803661e161"
+  integrity sha512-s+rNXPgfVs3c2cEAlWyROHdTzCmME6zNyuxculmABgFmXQX4+ghHzQEc4MOAdpMEOKlawJ/E5/hPyFFizgsqyA==
+  dependencies:
+    resize-observer-polyfill "^1.5.1"
+
 react-dom@^16.2.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
@@ -5225,6 +5232,11 @@ request@2.83.0:
     tough-cookie "~2.3.3"
     tunnel-agent "^0.6.0"
     uuid "^3.1.0"
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-from@^3.0.0:
   version "3.0.0"
