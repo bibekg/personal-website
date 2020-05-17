@@ -1,0 +1,35 @@
+[
+  {
+    "id": "bibek.ghimire",
+    "firstName": "Bibek",
+    "lastName": "Ghimire",
+    "sex": "male"
+  },
+  {
+    "id": "badri.ghimire",
+    "firstName": "Badri",
+    "lastName": "Ghimire",
+    "sex": "male"
+  },
+  {
+    "id": "sabitri.ghimire",
+    "firstName": "Sabitri",
+    "lastName": "Ghimire",
+    "maidenName": "Sanjel",
+    "sex": "female"
+  },
+  {
+    "id": "chinta.prasad.ghimire",
+    "firstName": "Chinta",
+    "middleName": "Prasad",
+    "lastName": "Ghimire",
+    "sex": "male"
+  },
+  {
+    "id": "krishna.mai.ghimire",
+    "firstName": "Krishna Mai",
+    "lastName": "Ghimire",
+    "maidenName": "Bajgain",
+    "sex": "female"
+  }
+]

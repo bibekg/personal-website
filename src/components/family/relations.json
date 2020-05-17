@@ -1,0 +1,22 @@
+[
+  {
+    "src": "badri.ghimire",
+    "type": "parent",
+    "dest": "bibek.ghimire"
+  },
+  {
+    "src": "sabitri.ghimire",
+    "type": "parent",
+    "dest": "bibek.ghimire"
+  },
+  {
+    "src": "chinta.prasad.ghimire",
+    "type": "parent",
+    "dest": "badri.ghimire"
+  },
+  {
+    "src": "krishna.mai.ghimire",
+    "type": "parent",
+    "dest": "badri.ghimire"
+  }
+]
