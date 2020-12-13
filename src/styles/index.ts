@@ -1,4 +1,3 @@
-import { css } from "styled-components";
 import colors from "./colors";
 import breakpoints from "./breakpoints";
 import shadows from "./shadows";

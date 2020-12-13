@@ -52,14 +52,20 @@ const ProjectCarousel = ({}: Props) => {
     >
       {projects.map((item) => {
         return (
-          <Link to={item.link} noUnderline position="relative" width="100%" pb="100%">
+          <Link
+            key={item.name}
+            to={item.link}
+            noUnderline
+            position="relative"
+            width="100%"
+            pb="100%"
+          >
             <Box
               position="absolute"
               top={0}
               left={0}
               bottom={0}
               right={0}
-              key={item.name}
               boxShadow="card"
               bg="white"
               borderRadius={2}

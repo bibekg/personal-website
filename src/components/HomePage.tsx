@@ -1,68 +1,111 @@
 // @flow
 
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import * as React from "react";
 import Link from "src/components/Link";
+import Box from "src/components/Box";
+import * as Text from "src/components/NewText";
 import { mq } from "src/styles/breakpoints";
-import items from "../info";
-import { colors, sizes } from "../styles";
-import Logo from "./Logo";
-import ProfilePic, { picturePositioningCalc } from "./ProfilePic";
-import ProjectCarousel from "./ProjectCarousel";
-import OldText from "./Text";
+import { colors, sizes } from "src/styles";
+import Logo from "src/components/Logo";
+import ProfilePic, { picturePositioningCalc } from "src/components/ProfilePic";
+import ProjectCarousel from "src/components/ProjectCarousel";
+import OldText from "src/components/Text";
 
-const HomePageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${colors.offWhite};
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-`;
-
-const InnerContainer = styled.div`
-  margin-top: calc(${sizes.logo} + 20px);
-  padding: 0 20px;
-
-  ${mq.md} {
-    margin-top: calc(0.5 * calc(${sizes.profilePicWidth} - ${picturePositioningCalc}));
-    padding: 0;
-  }
-
-  max-width: 650px;
-  width: 95%;
-  position: relative;
-  margin-bottom: 80px;
-`;
-
-const ProfilePicContainer = styled.div`
-  position: absolute;
-  top: calc(-1 * ${picturePositioningCalc});
-  right: calc(-1 * ${picturePositioningCalc});
-  opacity: 0.5;
-  display: none;
-
-  ${mq.md} {
-    display: block;
-  }
-`;
+import githubIcon from "src/assets/images/icons/github.svg";
+import linkedInIcon from "src/assets/images/icons/linkedin.svg";
+import mediumIcon from "src/assets/images/icons/medium.svg";
 
 const Section = styled.section`
   margin-bottom: 50px;
 `;
 
 const HomePage = () => (
-  <HomePageWrapper>
-    <Logo />
+  <Box
+    css={css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: ${colors.offWhite};
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    `}
+  >
+    {/* Logo */}
+    <Box
+      position="absolute"
+      top="20px"
+      left="20px"
+      display="flex"
+      alignItems="center"
+      justifyContent="flex-start"
+    >
+      <Logo />
+    </Box>
 
-    <ProfilePicContainer>
+    {/* Picture */}
+    <Box
+      css={css`
+        position: absolute;
+        top: calc(-1 * ${picturePositioningCalc});
+        right: calc(-1 * ${picturePositioningCalc});
+        opacity: 0.5;
+        display: none;
+
+        ${mq.md} {
+          display: block;
+        }
+      `}
+    >
       <ProfilePic />
-    </ProfilePicContainer>
+    </Box>
 
-    <InnerContainer>
+    {/* Navbar */}
+    <Box
+      mx={-2}
+      display="flex"
+      position="relative"
+      justifyContent="flex-start"
+      px={{ _: "0", md: "20px" }}
+      mt={`calc(${sizes.logo} / 2 + 20px)`}
+      transform="translateY(-50%)"
+      mb={5}
+      maxWidth="650px"
+      width="95%"
+      css={css`
+        left: max(20px + calc((${sizes.logo} + 20px) - ((100vw - min(95vw, 650px)) / 2)), 0px);
+      `}
+    >
+      {[
+        {
+          name: "Blog",
+          link: "https://blog.bibekg.com",
+        },
+      ].map((item, index) => {
+        return [
+          index !== 0 ? "•" : null,
+          <Link key="link" color={colors.grey} to={item.link} fontSize={18} fontWeight={700}>
+            {item.name}
+          </Link>,
+        ].filter(Boolean);
+      })}
+    </Box>
+
+    <Box
+      position="relative"
+      maxWidth="650px"
+      width="95%"
+      mb={5}
+      px={{ _: "0", md: "20px" }}
+      mt={{
+        _: `calc(${sizes.logo} + 20px);`,
+        md: `calc(0.5 * calc(${sizes.profilePicWidth} - ${picturePositioningCalc}) - 100px);`,
+      }}
+    >
       <Section id="heythere">
-        <OldText as="h1">Hey there! 👋🏽</OldText>
+        <OldText as="h1">👋🏽 Hey there!</OldText>
       </Section>
       <Section id="intro">
         <OldText as="p">
@@ -84,21 +127,49 @@ const HomePage = () => (
 
       <Section id="when-not-coding">
         <OldText as="p">
-          When I'm not coding, I love to {items.blog("write")}, {items.readingList("read")},{" "}
-          {items.run("run")}, {items.guitar("play guitar")}, and{" "}
-          {items.outside("spend time outdoors")}.
+          When I'm not coding, I love to <Link to="https://blog.bibekg.com">write</Link>, read, run,
+          play guitar, and spend time outdoors.
         </OldText>
       </Section>
 
       <Section id="contact">
         <OldText as="p">
-          If you're interested in working together, you can find me on the rest of the internet at{" "}
-          {items.github("GitHub")}, {items.linkedIn("LinkedIn")}, and {items.medium("Medium")}, or
-          hit me up at {items.email()}.
+          If you're interested in connecting, you can find me on the rest of the internet below.
         </OldText>
+        <Box display="flex" mx={-2} justifyContent="center" alignItems="center" mt={5}>
+          {[
+            {
+              name: "GitHub",
+              icon: githubIcon,
+              link: "https://github.com/bibekg",
+            },
+            {
+              name: "LinkedIn",
+              icon: linkedInIcon,
+              link: "https://linkedin.com/in/bibekg",
+            },
+            {
+              name: "Medium",
+              icon: mediumIcon,
+              link: "https://medium.com/@bibekg",
+            },
+            {
+              name: "Email",
+              icon: mediumIcon,
+              link: "mailto:ghim.bibek@gmail.com",
+            },
+          ].map((item, index) => {
+            return [
+              index !== 0 ? <Text.Plain color={colors.grey}>•</Text.Plain> : null,
+              <Link key="link" mx={2} color={colors.grey} to={item.link}>
+                {item.name}
+              </Link>,
+            ].filter(Boolean);
+          })}
+        </Box>
       </Section>
-    </InnerContainer>
-  </HomePageWrapper>
+    </Box>
+  </Box>
 );
 
 export default HomePage;

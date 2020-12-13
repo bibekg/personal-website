@@ -1,18 +1,32 @@
 import * as React from "react";
 import isPropValid from "@emotion/is-prop-valid";
 import styled from "@emotion/styled";
-import { space, SpaceProps, layout, LayoutProps, position, PositionProps } from "styled-system";
+import {
+  space,
+  SpaceProps,
+  layout,
+  LayoutProps,
+  position,
+  PositionProps,
+  typography,
+  TypographyProps,
+} from "styled-system";
 import { Link as ReactRouterLink } from "react-router-dom";
 import theme from "src/styles/theme";
 
 const linkBaseStyles = (props: LinkStyleProps) => ({
-  textDecoration: props.noUnderline ? "none" : undefined,
-  color: props.color ? props.color : theme.colors.blue,
+  textDecoration: props.underline ? "underline" : "none",
+  color: props.color ? props.color : theme.colors.grey,
+  "&:hover": {
+    color: props.hoverColor ? props.hoverColor : theme.colors.blue,
+  },
+  transition: "0.3s ease color",
 });
 
-interface LinkStyleProps extends SpaceProps, LayoutProps, PositionProps {
-  noUnderline?: boolean;
+interface LinkStyleProps extends SpaceProps, LayoutProps, PositionProps, TypographyProps {
+  underline?: boolean;
   color?: string;
+  hoverColor?: string;
   as?: any;
   overrideStyles?: any;
 }
@@ -29,6 +43,7 @@ const args = [
   space,
   position,
   layout,
+  typography,
   (props: LinkStyleProps) => linkBaseStyles(props),
   (props: LinkStyleProps) => props.overrideStyles,
 ] as const;
@@ -62,6 +77,10 @@ const UnifiedLink = ({ to, ref, defaultValue, referrerPolicy, ...props }: Unifie
   ) : (
     <InternalLink {...props} to={to} defaultValue={defaultValue} referrerPolicy={referrerPolicy} />
   );
+};
+
+UnifiedLink.defaultProps = {
+  fontWeight: 600,
 };
 
 export { ExternalLink, InternalLink, UnifiedLink as Link };

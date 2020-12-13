@@ -21,7 +21,7 @@ class App extends React.Component<PropsType> {
       <AppWrapper>
         <Global
           styles={css`
-            @import url("https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,500,700");
+            @import url("https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,700");
 
             html,
             body {

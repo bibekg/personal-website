@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import Text from "../Text";
 import bg from "../images/christmas-bg.png";
@@ -15,7 +15,7 @@ const SnowflakeDiv = styled.div`
   text-shadow: 0 0 5px #000;
 `;
 
-const Snowflakes = props => (
+const Snowflakes = (props) => (
   <div className="snowflakes" aria-hidden="true">
     {(() => {
       const els = [];
@@ -23,7 +23,7 @@ const Snowflakes = props => (
         els.push(
           <SnowflakeDiv key={i} className="snowflake">
             ❅
-          </SnowflakeDiv>
+          </SnowflakeDiv>,
         );
       }
       return els;
@@ -45,7 +45,7 @@ const lyrics = [
   "We laughed, we cried til our tears ran dry",
   "We danced, we sang late into the nights",
   "Memories made, I'll never forget, so glad you've been by my side",
-  "Through all these times, the lows and the highs, I found my brother for life"
+  "Through all these times, the lows and the highs, I found my brother for life",
 ];
 
 const Wrapper = styled.div`
@@ -74,7 +74,7 @@ const LyricsWrapper = styled.div`
   margin-top: 30px;
   padding: 20px;
   border-radius: 10px;
-  display: ${props => (props.show ? "block" : "none")};
+  display: ${(props) => (props.show ? "block" : "none")};
 `;
 
 type StateType = {
@@ -83,7 +83,7 @@ type StateType = {
 
 export default class extends React.Component<{}, StateType> {
   state = {
-    songDone: false
+    songDone: false,
   };
 
   render() {
@@ -114,7 +114,7 @@ export default class extends React.Component<{}, StateType> {
             onEnded={() => {
               console.log("ended fired");
               this.setState({
-                songDone: true
+                songDone: true,
               });
             }}
           />
@@ -131,7 +131,7 @@ export default class extends React.Component<{}, StateType> {
                 <Text key={index} center color={colors.black}>
                   {line}
                 </Text>
-              )
+              ),
             )}
           </LyricsWrapper>
         </InnerContainer>

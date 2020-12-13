@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import Text from "./Text";
 
@@ -7,7 +7,7 @@ interface Props {
   ownLine?: boolean;
 }
 
-const Wrapper = styled.a`
+const Wrapper = styled("a")<Props>`
   ${Text} {
     margin-left: 2px;
   }
