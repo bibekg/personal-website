@@ -1,13 +1,25 @@
 {
   "compilerOptions": {
-    "module": "ES6",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "jsx": "react",
-    "typeRoots": ["node_modules/@types", "src/js/types"]
+    "typeRoots": ["node_modules/@types", "src/js/types"],
+    "baseUrl": "."
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

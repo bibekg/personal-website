@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from "@emotion/styled";
 import { rgb } from 'polished'
 
 import Text from '../Text'
@@ -108,11 +108,7 @@ const PixelGridRow = styled.div`
   flex-grow: 1;
 `
 
-const PixelGridPixel = styled.div.attrs({
-  style: ({ color }) => ({
-    background: color,
-  }),
-})`
+const PixelGridPixel = styled('div')`
   flex-grow: 1;
 `
 

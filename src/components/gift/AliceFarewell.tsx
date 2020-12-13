@@ -1,16 +1,16 @@
 // @flow
 
-import * as React from 'react'
-import styled from 'styled-components'
-import { useVisualizer, models as vizModels } from 'react-audio-viz'
+import * as React from "react";
+import styled from "@emotion/styled";
+import { useVisualizer, models as vizModels } from "react-audio-viz";
 
-import MediaLyrics from '../MediaLyrics'
-import songLyrics from './for-alice-lyrics.json'
-import { shadows } from '../../styles'
+import MediaLyrics from "../MediaLyrics";
+import songLyrics from "./for-alice-lyrics.json";
+import { shadows } from "../../styles";
 // import VIDEO_SRC from './for-alice-540p.mp4'
 
 const VIDEO_SRC =
-  'https://bibeks-random-assets.s3-us-west-2.amazonaws.com/personal-website/for-alice.mp4'
+  "https://bibeks-random-assets.s3-us-west-2.amazonaws.com/personal-website/for-alice.mp4";
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   & > :not(canvas) {
     z-index: 1;
   }
-`
+`;
 
 const VideoContainer = styled.div`
   position: relative;
@@ -49,7 +49,7 @@ const VideoContainer = styled.div`
     position: absolute;
     bottom: -60px;
   }
-`
+`;
 
 const Video = styled.video`
   height: 100%;
@@ -58,22 +58,20 @@ const Video = styled.video`
   &:focus {
     outline: none;
   }
-`
+`;
 
 const AliceFarewell = () => {
-  const videoElementRef: React.MutableRefObject<HTMLVideoElement | null> = React.useRef(
-    null
-  )
-  const [ReactAudioViz, initializeVisualizer] = useVisualizer(videoElementRef)
+  const videoElementRef: React.MutableRefObject<HTMLVideoElement | null> = React.useRef(null);
+  const [ReactAudioViz, initializeVisualizer] = useVisualizer(videoElementRef);
 
   const vizModel = React.useMemo(
     () =>
       vizModels.polar({
-        color: 'rgb(159, 166, 117)',
+        color: "rgb(159, 166, 117)",
         darkMode: true,
       }),
-    [vizModels]
-  )
+    [vizModels],
+  );
 
   return (
     <Wrapper>
@@ -88,15 +86,10 @@ const AliceFarewell = () => {
           onPlay={initializeVisualizer}
           src={VIDEO_SRC}
         />
-        {
-          <MediaLyrics
-            mediaElementRef={videoElementRef}
-            songLyrics={songLyrics}
-          />
-        }
+        {<MediaLyrics mediaElementRef={videoElementRef} songLyrics={songLyrics} />}
       </VideoContainer>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default AliceFarewell
+export default AliceFarewell;

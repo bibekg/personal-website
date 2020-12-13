@@ -2,11 +2,10 @@
   "name": "bibekg-personal-website",
   "version": "1.0.0",
   "description": "My personal website",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./src/index.html",
-    "build": "parcel build src/index.html -d build/",
+    "dev": "parcel serve ./src/index.html",
+    "build": "parcel build --dist-dir build src/index.html ",
     "deploy": "yarn build && yarn deploy-surge",
     "deploy-surge": "surge --project build --domain bibekg.com",
     "clean": "rimraf dist && rimraf build",
@@ -14,28 +13,58 @@
     "image-optim": "imageOptim --directory src/js/images"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
     "@types/react": "^16.9.2",
+    "babel-preset-react-app": "^10.0.0",
     "json5": "^2.1.0",
     "polished": "^2.0.3",
-    "react": "^16.2.0",
+    "react": ">= 16.8.0",
     "react-audio-viz": "0.0.3",
-    "react-dom": "^16.2.0",
+    "react-dom": ">= 16.8.0",
+    "react-is": ">= 16.8.0",
     "react-router-dom": "^4.2.2",
     "react-youtube": "^7.9.0",
-    "styled-components": "^4.3.2"
+    "src": "^1.1.2",
+    "styled-components": "^5.2.1",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@emotion/babel-preset-css-prop": "^11.0.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^4.1.18",
-    "babel-core": "^6.26.3",
+    "@types/styled-system": "^5.1.10",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "imageoptim-cli": "^1.15.4",
-    "parcel-bundler": "^1.11.0",
+    "parcel": "next",
     "rimraf": "^2.6.2",
     "surge": "^0.20.1",
     "typescript": "^3.5.3"
+  },
+  "alias": {
+    "src": "./src"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript",
+      "@emotion/babel-preset-css-prop"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-nullish-coalescing-operator"
+    ]
   }
 }
