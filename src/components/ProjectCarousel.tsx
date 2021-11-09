@@ -23,7 +23,8 @@ const ProjectCarousel = ({}: Props) => {
     },
     {
       name: "react-schedule-selector",
-      description: "An open-source React component for specifying schedule availability",
+      description:
+        "An open-source React component for specifying schedule availability with 500+ weekly downloads",
       image: rssHero,
       link: "https://react-schedule-selector.surge.sh",
     },
@@ -38,8 +39,7 @@ const ProjectCarousel = ({}: Props) => {
       name: "BruinMeet",
       description: "A UCLA-exclusive dating app made by UCLA students for UCLA students",
       image: bmHero,
-      link:
-        "https://medium.com/bruinmeet/i-architected-bruinmeets-front-end-these-are-the-technologies-i-used-and-why-ec60a8b5b238",
+      link: "https://medium.com/bruinmeet/i-architected-bruinmeets-front-end-these-are-the-technologies-i-used-and-why-ec60a8b5b238",
     },
   ];
 

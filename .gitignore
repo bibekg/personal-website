@@ -5,3 +5,4 @@ node_modules
 yarn-error.log
 for-alice-540p.mp4
 .parcel-cache
+.DS_Store
