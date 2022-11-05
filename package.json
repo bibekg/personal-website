@@ -49,7 +49,7 @@
     "imageoptim-cli": "^1.15.4",
     "parcel": "next",
     "rimraf": "^2.6.2",
-    "surge": "^0.20.1",
+    "surge": "^0.20.5",
     "typescript": "^3.5.3"
   },
   "alias": {
