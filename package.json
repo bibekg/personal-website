@@ -18,7 +18,7 @@
     "@emotion/styled": "^11.0.0",
     "@types/react": "^16.9.2",
     "babel-preset-react-app": "^10.0.0",
-    "json5": "^2.1.0",
+    "json5": "^2.2.2",
     "polished": "^2.0.3",
     "react": ">= 16.8.0",
     "react-audio-viz": "0.0.3",
