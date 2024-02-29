@@ -110,7 +110,7 @@ const HomePage = () => (
       <Section id="intro">
         <OldText as="p">
           My name is Bibek Ghimire. I’m a software engineer based in the San Francisco Bay Area. I’m
-          currently working on point-of-sale payments software at{" "}
+          currently building internal docs platforms and tooling at
           <Link to="https://stripe.com">Stripe</Link>. I graduated from UCLA in 2019 with a B.S. in
           Computer Science and have worked at <Link to="https://clever.com">Clever</Link>,{" "}
           <Link to="https://uber.com">Uber</Link>, and <Link to="https://stanza.co">Stanza</Link> in
@@ -147,16 +147,6 @@ const HomePage = () => (
               name: "LinkedIn",
               icon: linkedInIcon,
               link: "https://linkedin.com/in/bibekg",
-            },
-            {
-              name: "Medium",
-              icon: mediumIcon,
-              link: "https://medium.com/@bibekg",
-            },
-            {
-              name: "Email",
-              icon: mediumIcon,
-              link: "mailto:ghim.bibek@gmail.com",
             },
           ].map((item, index) => {
             return [
