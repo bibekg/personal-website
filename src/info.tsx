@@ -51,8 +51,7 @@ const itemMetas: { [s: string]: ItemMeta } = {
   bruinmeet: {
     defaultTitle: "BruinMeet",
     icon: <Icon src={bmIcon} />,
-    link:
-      "https://medium.com/bruinmeet/i-architected-bruinmeets-front-end-these-are-the-technologies-i-used-and-why-ec60a8b5b238",
+    link: "https://medium.com/bruinmeet/i-architected-bruinmeets-front-end-these-are-the-technologies-i-used-and-why-ec60a8b5b238",
   },
   unjournal: {
     defaultTitle: "Unjournal",
@@ -71,8 +70,7 @@ const itemMetas: { [s: string]: ItemMeta } = {
   },
   readingList: {
     icon: <EmojiIcon>📚</EmojiIcon>,
-    link:
-      "https://www.notion.so/bibek/47fa22a75a4b44308cb4f8685a40399f?v=a881c87ad1244224a4149ccad939501a",
+    link: "https://www.notion.so/bibek/47fa22a75a4b44308cb4f8685a40399f?v=a881c87ad1244224a4149ccad939501a",
   },
   run: {
     icon: <EmojiIcon>👟</EmojiIcon>,
@@ -94,11 +92,6 @@ const itemMetas: { [s: string]: ItemMeta } = {
   medium: {
     icon: <Icon src={mediumIcon} />,
     link: "https://medium.com/@bibekg",
-  },
-  email: {
-    defaultTitle: "me@bibekg.com",
-    icon: <EmojiIcon>✉️</EmojiIcon>,
-    link: "mailto:me@bibekg.com",
   },
 };
 
